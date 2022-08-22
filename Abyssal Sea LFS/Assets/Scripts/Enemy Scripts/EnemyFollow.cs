@@ -16,7 +16,7 @@ public class EnemyFollow : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Vector2.Distance(transform.position, Target.position) > StoppingDistance)
         {
