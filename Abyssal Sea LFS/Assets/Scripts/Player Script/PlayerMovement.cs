@@ -11,14 +11,16 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
 
     // Update is called once per frame
-    void Update()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-    }
+    //void Update()
+    //{
+    //    movement.x = Input.GetAxisRaw("Horizontal");
+    //    movement.y = Input.GetAxisRaw("Vertical");
+    //}
 
     void FixedUpdate()
     {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
