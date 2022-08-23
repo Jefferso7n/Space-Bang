@@ -20,7 +20,7 @@ public class EnemyFollow : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, Target.position) > StoppingDistance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, Target.position, Speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, Target.position, Speed * Time.fixedDeltaTime);
         }
     }
 }
