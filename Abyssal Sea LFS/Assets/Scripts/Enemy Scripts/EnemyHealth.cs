@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth;
-    public float currentHealth { get; private set; } = 5f;
+    [SerializeField] private float maxHealth = 40f;
+    public float currentHealth { get; private set; }
 
     private void Awake()
     {
@@ -19,7 +19,8 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
-        } else if (currentHealth <= 0f)
+        }
+        else if (currentHealth <= 0f)
         {
             currentHealth = 0f;
         }
