@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            other.gameObject.GetComponent<SpriteRenderer>().color = Color.black; //Change enemy colour when hit
             other.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-bulletDamage);
             Destroy(gameObject);
 

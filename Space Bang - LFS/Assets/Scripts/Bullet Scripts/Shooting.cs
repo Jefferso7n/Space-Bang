@@ -12,11 +12,11 @@ public class Shooting : MonoBehaviour
     private float timer;
     public float timeBetweenFiring;
 
-    public Texture2D cursorArrow;
+    //public Texture2D cursorArrow;
 
     void Start()
     {
-        Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+        //Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
