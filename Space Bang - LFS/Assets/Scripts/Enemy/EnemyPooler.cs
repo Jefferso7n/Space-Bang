@@ -12,13 +12,13 @@ public class EnemyPooler : MonoBehaviour
     private List<GameObject> pooledObjects;
 
     [SerializeField]
-    private float spawnRadius = 11f, time = 1f;
-    private Vector2 spawnPosition;
+    private float time = 1f;
+    // private Vector2 playerPosition;
 
-    void Awake()
-    {
-        spawnPosition = GameObject.Find("Player").transform.position;
-    }
+    // void Awake()
+    // {
+    //     playerPosition = GameObject.Find("Player").transform.position;
+    // }
 
     void Start()
     {
@@ -51,15 +51,25 @@ public class EnemyPooler : MonoBehaviour
     }
 
     void SpawnEnemy(){
-        spawnPosition += Random.insideUnitCircle.normalized * spawnRadius * 1.5f;
-
+//
+//        SpawnInRange();
         GameObject obj = GetPooledObject();
         if (obj == null) return;
 
-        obj.transform.position = spawnPosition;
+        obj.transform.position = obj.gameObject.GetComponent<EnemySpawnPosition>().SpawnInRange(obj);
         obj.transform.rotation = Quaternion.identity;
         obj.SetActive(true);
     }
+
+    // public void SpawnInRange(){
+    //     spawnPosition += Random.insideUnitCircle.normalized * spawnRadius;
+    //     if (Vector2.Distance (playerPosition, spawnPosition) < spawnRadius-2f){
+    //         SpawnInRange();
+    //         Debug.Log("<");
+    //     }else{
+    //         return;
+    //     }
+    // }
 
     IEnumerator SpawnAnEnemy()
     {

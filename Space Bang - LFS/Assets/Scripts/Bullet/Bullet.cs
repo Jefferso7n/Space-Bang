@@ -51,15 +51,10 @@ public class Bullet : MonoBehaviour
             if (other.gameObject.GetComponent<EnemyHealth>().currentHealth == 0f){ //Change the color and the health to the standard
                 other.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 other.gameObject.GetComponent<EnemyHealth>().currentHealth = other.gameObject.GetComponent<EnemyHealth>().maxHealth;
+                other.gameObject.GetComponent<EnemySpawnPosition>().SpawnInRange(other.gameObject);
                 other.gameObject.SetActive(false);
             }
-//            Destroy(gameObject);
             gameObject.SetActive(false);
-
-            // if (other.gameObject.GetComponent<EnemyHealth>().currentHealth == 0)
-            // {
-            //    other.gameObject.SetActive(false);
-            // }
         }
 
         if (other.gameObject.tag == "Player"){
