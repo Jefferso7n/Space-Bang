@@ -6,8 +6,14 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private float spawnRadius = 7, time = 1.5f;
+    private Vector2 spawnPosition;
 
     public GameObject[] enemies;
+
+    void Awake()
+    {
+        spawnPosition = GameObject.Find("Player").transform.position;
+    }
 
     void Start()
     {
@@ -16,7 +22,6 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnAnEnemy()
     {
-        Vector2 spawnPosition = GameObject.Find("Player").transform.position;
         spawnPosition += Random.insideUnitCircle.normalized * spawnRadius;
 
         Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPosition, Quaternion.identity);

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 40f;
+
+    public float maxHealth = 40f;
+    public float currentHealth;
+
+
     [SerializeField] private GameObject floatingTextPrefab;
-
-    public float currentHealth { get; private set; }
-
     private void Awake()
     {
         currentHealth = maxHealth;
