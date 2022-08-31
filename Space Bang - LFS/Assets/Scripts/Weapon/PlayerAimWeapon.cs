@@ -8,7 +8,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
     void Awake()
     {
-        aimTransform = transform.Find("Weapon");
+        aimTransform = transform.Find("WeaponHolder");
     }
 
     void FixedUpdate()

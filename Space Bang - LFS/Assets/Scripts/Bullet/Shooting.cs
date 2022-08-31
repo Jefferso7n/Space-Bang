@@ -11,7 +11,6 @@ public class Shooting : MonoBehaviour
     private float timer;
     public float timeBetweenFiring;
 
-
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -44,6 +43,5 @@ public class Shooting : MonoBehaviour
             obj.transform.rotation = Quaternion.identity;
             obj.SetActive(true);
         }
-
     }
 }
