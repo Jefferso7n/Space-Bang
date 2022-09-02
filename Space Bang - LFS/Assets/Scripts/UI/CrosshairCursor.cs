@@ -9,9 +9,9 @@ public class CrosshairCursor : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        Cursor.visible = false;
+//        Cursor.visible = false;
         Vector2 mouseCursosPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = mouseCursosPos;
     }
