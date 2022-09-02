@@ -55,9 +55,7 @@ public class Bullet : MonoBehaviour
                 other.gameObject.SetActive(false);
             }
             gameObject.SetActive(false);
-        }
-
-        if (other.gameObject.tag == "Player"){
+        }else{
             gameObject.SetActive(false);
         }
     }
