@@ -10,7 +10,8 @@ public class GameOverScreen : MonoBehaviour
 
     void Start(){
         statisticsText.text = "DANO CAUSADO: " + PlayerPrefs.GetFloat("totalDamage").ToString() +
-        "\nINIMIGOS MORTOS: " + PlayerPrefs.GetFloat("enemiesKilled").ToString();
+        "\nINIMIGOS MORTOS: " + PlayerPrefs.GetFloat("enemiesKilled").ToString() +
+        "\nTEMPO DE JOGO: " + PlayerPrefs.GetString("gameTimer");
     }
 
 }
