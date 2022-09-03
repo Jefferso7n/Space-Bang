@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public static bool GameIsPaused;
     public GameObject pauseMenuUI;
+
+    void Start(){
+        GameIsPaused = false;
+    }
 
     void Update()
     {
