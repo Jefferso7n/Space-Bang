@@ -9,13 +9,14 @@ public class Bullet : MonoBehaviour
     private Camera mainCam;
     private Vector3 mousePos;
     private Rigidbody2D rb;
-    public float force;
-    private float rotZ;
+    public float force, rotZ;
 
     private Vector3 direction, rotation;
+    public Statistics playerStatistics;
 
     void Start()
     {
+        playerStatistics = GameObject.FindGameObjectWithTag("Player").GetComponent<Statistics>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         StartConfiguration();
 
@@ -45,10 +46,12 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            playerStatistics.updateDamage(bulletDamage);
             other.gameObject.GetComponent<SpriteRenderer>().color = Color.black; //Change enemy colour when hit
             other.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-bulletDamage);
 
             if (other.gameObject.GetComponent<EnemyHealth>().currentHealth == 0f){ //Change the color and the health to the standard
+                playerStatistics.updateKills();
                 other.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 other.gameObject.GetComponent<EnemyHealth>().currentHealth = other.gameObject.GetComponent<EnemyHealth>().maxHealth;
                 other.gameObject.GetComponent<EnemySpawnPosition>().SpawnInRange(other.gameObject);

@@ -6,6 +6,8 @@ public class _SceneManager : MonoBehaviour
 {
     public void LoadScenes(string scene){
         Time.timeScale = 1f;
+        PlayerPrefs.SetFloat("totalDamage", 0f);
+        PlayerPrefs.SetFloat("enemiesKilled", 0f);
         SceneManager.LoadScene(scene);
     }
 

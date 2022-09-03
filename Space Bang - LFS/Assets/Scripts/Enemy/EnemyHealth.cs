@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
 
 
     [SerializeField] private GameObject floatingTextPrefab;
+
     private void Awake()
     {
         currentHealth = maxHealth;

@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class Statistics : MonoBehaviour
 {
-//    private float damage
+    public float totalDamage, enemiesKilled;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public void updateDamage (float damage){
+        totalDamage += damage;
+        PlayerPrefs.SetFloat("totalDamage", totalDamage);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void updateKills (){
+        PlayerPrefs.SetFloat("enemiesKilled", ++enemiesKilled);
     }
 }

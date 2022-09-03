@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameOverScreen : MonoBehaviour
 {
-    public Text pointsText;
+    public TextMeshProUGUI statisticsText;
 
-    void OnEnable(){
-        Cursor.visible = true;
-    }
-
-    public void Setup(int score){
-        gameObject.SetActive(true);
-        pointsText.text = score.ToString() + " PONTOS";
+    void Start(){
+        statisticsText.text = "DANO CAUSADO: " + PlayerPrefs.GetFloat("totalDamage").ToString() +
+        "\nINIMIGOS MORTOS: " + PlayerPrefs.GetFloat("enemiesKilled").ToString();
     }
 
 }
