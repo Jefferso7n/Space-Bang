@@ -11,6 +11,14 @@ public class _SceneManager : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
+    public void LoadSettingsMenu(){
+            SceneManager.LoadScene("SettingsMenu", LoadSceneMode.Additive);
+    }
+
+    public void UnloadSettingsMenu(){
+        SceneManager.UnloadSceneAsync("SettingsMenu");
+    }
+
     public void Quit(){
         Application.Quit();
     }
