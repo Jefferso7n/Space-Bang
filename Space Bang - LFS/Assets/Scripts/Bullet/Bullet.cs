@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rotZ + 90);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
