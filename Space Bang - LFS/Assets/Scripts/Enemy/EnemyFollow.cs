@@ -4,24 +4,41 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public float speed { get; private set; } = 2f;
+    public float speed { get; private set; } = 2.5f;
+    public float respeed { get; private set; }
     public float attackDamage { get; private set; } = 1f;
-    public float attackSpeed { get; private set; } = 1f;
-    private float canAttack;
+    public float attackSpeed { get; private set; } = 1.5f;
+    public float canAttack;
 
 
     private Transform target;
+    public Rigidbody2D rb;
+    private Vector3 distance;
 
     // Start is called before the first frame update
     void Start()
     {
+        respeed = speed;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
+        distance = target.position - transform.position;
+        distance = distance.normalized;
+        distance = distance * speed;
+
+        rb.AddForce(distance);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
+            canAttack = 0f;
+        }
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -40,28 +57,40 @@ public class EnemyFollow : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
-            canAttack = 0f;
-        }
-    }
+//     void OnCollisionExit2D(Collision2D other){
+//         speed = 0f;
+//         Debug.Log("Exit");
+//     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            target = other.transform;
-        }
-    }
+    // void OnTriggerStay2D(Collider2D other){
+    //     if (other.gameObject.tag == "Player")
+    //     {
+    //         if (attackSpeed <= canAttack)
+    //         {
+    //             other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
+    //             canAttack = 0f;
+    //         }
+    //         else
+    //         {
+    //             canAttack += Time.fixedDeltaTime;
+    //         }
+    //     }
+    // }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            target = null;
-        }
-    }
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.tag == "Player")
+    //     {
+    //         other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
+    //         canAttack = 0f;
+    //     }
+    // }
+
+    // void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if (other.gameObject.tag == "Player")
+    //     {
+    //         target = null;
+    //     }
+    // }
 }

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerAimWeapon : MonoBehaviour
 {
-    private Transform aimTransform;
+    public Transform aimTransform;
+    public Transform player;
+    bool isfacingRight = true;
 
-    void Awake()
-    {
-        aimTransform = transform.Find("WeaponHolder");
-    }
+    // void Awake()
+    // {
+    //     isfacingRight = player.GetComponent<PlayerController>().facingRight;
+    // }
 
     void FixedUpdate()
     {
         HandleAiming();
-        HandleShooting();        
     }
-
 
     public Camera mainCam;
     private Vector3 mousePosition;
@@ -29,19 +29,37 @@ public class PlayerAimWeapon : MonoBehaviour
         aimTransform.eulerAngles = new Vector3(0,0, angle);
 
         Vector3 aimLocalScale = Vector3.one;
-        if (angle > 90 || angle < -90) {
-            aimLocalScale.y = -1f;
+
+//        Debug.Log("Angle: " + angle);
+        if (isfacingRight){
+            if (angle > 90 || angle < -90) {
+                aimLocalScale.y = -1f;
+            }
+            else
+            {
+                aimLocalScale.y = 1f;
+            }
+        }else{
+            if (angle > 90 || angle < -90) {
+                aimLocalScale.y = 1f;
+            }
+            else
+            {
+                aimLocalScale.y = -1f;
+            }
         }
-        else
-        {
-            aimLocalScale.y = 1f;
+
+        if (isfacingRight){
+            aimTransform.localScale = aimLocalScale;
+        }else{
+            aimTransform.localScale = aimLocalScale * -1;
         }
-        aimTransform.localScale = aimLocalScale;
+
     }
 
-    void HandleShooting()
+    public void PositionController()
     {
-
+        isfacingRight = !isfacingRight;
     }
 
 }

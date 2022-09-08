@@ -2,14 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingsScreen : MonoBehaviour
 {
     public Toggle fullscreenTog;
+    public List<ResItem> resolutions = new List<ResItem>();
+    private int selectedResolution;
+    public TMP_Text resolutionLabel;
+
     // Start is called before the first frame update
     void Start()
     {
         fullscreenTog.isOn = Screen.fullScreen;
+
+        bool foundRes = false;
+        for (int i = 0; i < resolutions.Count; i++)
+        {
+            if (Screen.width == resolutions[i].horizontal && Screen.height == resolutions[i].vertical){
+                foundRes = true;
+
+                selectedResolution = i;
+                UpdateResLabel();
+            }
+        }
+
+        if (!foundRes){
+            ResItem newRes = new ResItem();
+            newRes.horizontal = Screen.width;
+            newRes.vertical = Screen.height;
+
+            resolutions.Add(newRes);
+            selectedResolution = resolutions.Count - 1;
+
+            UpdateResLabel();
+        }
+        
     }
 
     // Update is called once per frame
@@ -18,7 +46,35 @@ public class SettingsScreen : MonoBehaviour
         
     }
 
-    public void ApplyGraphics(){
-        Screen.fullScreen = fullscreenTog.isOn;
+    public void ResLeft(){
+        selectedResolution--;
+        if (selectedResolution < 0){
+            selectedResolution = 0; // ou infinito modo: count-1
+        }
+        UpdateResLabel();
     }
+
+    public void ResRight(){
+        selectedResolution++;
+        if (selectedResolution > resolutions.Count - 1){
+            selectedResolution = resolutions.Count - 1; // ou infinito modo: 0
+        }
+        UpdateResLabel();        
+    }
+
+    public void UpdateResLabel(){
+        resolutionLabel.text = resolutions[selectedResolution].horizontal.ToString() + " X "
+        + resolutions[selectedResolution].vertical.ToString();
+    }
+
+
+    public void ApplyGraphics(){
+//        Screen.fullScreen = fullscreenTog.isOn;
+        Screen.SetResolution(resolutions[selectedResolution].horizontal, resolutions[selectedResolution].vertical, fullscreenTog.isOn);
+    }
+}
+
+[System.Serializable]
+public class ResItem{
+    public int horizontal, vertical;
 }

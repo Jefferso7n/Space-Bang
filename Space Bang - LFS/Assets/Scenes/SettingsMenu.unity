@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3327991928026282804, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
       propertyPath: m_text
-      value: 1920 X 1080
+      value: RESOLUCAO
       objectReference: {fileID: 0}
     - target: {fileID: 3327991928026282804, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
       propertyPath: m_fontSize
@@ -337,6 +337,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3327991928502870250, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
   m_PrefabInstance: {fileID: 57310224}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &57310226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3327991928026282804, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
+  m_PrefabInstance: {fileID: 57310224}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &207003574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -777,6 +788,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenTog: {fileID: 1810505390}
+  resolutions:
+  - horizontal: 1024
+    vertical: 768
+  - horizontal: 1280
+    vertical: 720
+  - horizontal: 1366
+    vertical: 768
+  - horizontal: 1600
+    vertical: 900
+  - horizontal: 1920
+    vertical: 1080
+  - horizontal: 2160
+    vertical: 1440
+  - horizontal: 2048
+    vertical: 1080
+  - horizontal: 2560
+    vertical: 1440
+  - horizontal: 3200
+    vertical: 1800
+  - horizontal: 3440
+    vertical: 1440
+  - horizontal: 3840
+    vertical: 2160
+  resolutionLabel: {fileID: 57310226}
 --- !u!1 &1068194249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,10 +1875,14 @@ PrefabInstance:
     - target: {fileID: 3327991928502870251, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1047228163}
     - target: {fileID: 3327991928502870251, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ResRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3327991928502870251, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsScreen, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3327991928502870251, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -2022,10 +2061,14 @@ PrefabInstance:
     - target: {fileID: 3327991928502870251, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1047228163}
     - target: {fileID: 3327991928502870251, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ResLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 3327991928502870251, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsScreen, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3327991928502870251, guid: 62fdf4158bb1e6443a498dc40efefb86, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
