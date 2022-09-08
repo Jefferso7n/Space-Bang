@@ -58,8 +58,6 @@ public class Bullet : MonoBehaviour
                 other.gameObject.SetActive(false);
             }
             gameObject.SetActive(false);
-        }else{
-            gameObject.SetActive(false);
         }
     }
 
