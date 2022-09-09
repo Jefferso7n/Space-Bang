@@ -9,17 +9,22 @@ public class Bullet : MonoBehaviour
     private Camera mainCam;
     private Vector3 mousePos;
     private Rigidbody2D rb;
-    public float force, rotZ;
+    private float rotZ;
+    public float force;
 
     private Vector3 direction, rotation;
-    public Statistics playerStatistics;
+    private Statistics playerStatistics;
+
+    [SerializeField] private GameObject floatingTextPrefab;
+
+    void Awake(){
+        playerStatistics = GameObject.FindGameObjectWithTag("Player").GetComponent<Statistics>();
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
 
     void Start()
     {
-        playerStatistics = GameObject.FindGameObjectWithTag("Player").GetComponent<Statistics>();
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         StartConfiguration();
-
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
     }
@@ -47,18 +52,27 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             playerStatistics.updateDamage(bulletDamage);
-            other.gameObject.GetComponent<SpriteRenderer>().color = Color.black; //Change enemy colour when hit
-            other.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-bulletDamage);
+            DamagePopup.Create(other.transform.position, bulletDamage);
 
-            if (other.gameObject.GetComponent<EnemyHealth>().currentHealth == 0f){ //Change the color and the health to the standard
+            EnemyHealth EnemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+            EnemySpawnPosition EnemySpawnPosition = other.gameObject.GetComponent<EnemySpawnPosition>();
+            EnemyHealth.UpdateHealth(-bulletDamage);
+
+            if (EnemyHealth.currentHealth <= 0f){
                 playerStatistics.updateKills();
-                other.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-                other.gameObject.GetComponent<EnemyHealth>().currentHealth = other.gameObject.GetComponent<EnemyHealth>().maxHealth;
-                other.gameObject.GetComponent<EnemySpawnPosition>().SpawnInRange(other.gameObject);
+
+                EnemyHealth.RestartHealth();
+                EnemySpawnPosition.SpawnInRange(other.gameObject);
                 other.gameObject.SetActive(false);
             }
             gameObject.SetActive(false);
         }
+    }
+
+    void ShowDamage(string damage)
+    {
+        Instantiate(floatingTextPrefab, transform.position, Quaternion.identity);
+//        floatingTextPrefab.GetComponentInChildren<TextMesh>().text = damage;
     }
 
     void Disable(){

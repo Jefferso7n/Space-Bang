@@ -148,4 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 20
   rotZ: 0
-  playerStatistics: {fileID: 0}
+  floatingTextPrefab: {fileID: 4057766735276672902, guid: 3d1b53e301d9b8f4f9b381a1f8d416fd, type: 3}

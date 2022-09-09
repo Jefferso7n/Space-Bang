@@ -11,17 +11,17 @@ public class Shooting : MonoBehaviour
     private float timer;
     public float timeBetweenFiring;
 
-    void Start()
+    void Awake()
     {
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+//        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     void FixedUpdate()
     {
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 rotation = mousePos - transform.position;
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        // mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        // Vector3 rotation = mousePos - transform.position;
+        // float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        // transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
         if (!canFire)
         {

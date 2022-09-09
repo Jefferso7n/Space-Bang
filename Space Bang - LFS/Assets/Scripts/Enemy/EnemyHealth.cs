@@ -7,18 +7,17 @@ public class EnemyHealth : MonoBehaviour
 
     public float maxHealth = 40f;
     public float currentHealth;
-
-
-    [SerializeField] private GameObject floatingTextPrefab;
+    SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         currentHealth = maxHealth;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     public void UpdateHealth(float mod)
     {
-        ShowDamage(mod.ToString());
+        spriteRenderer.color = Color.red;
         currentHealth += mod;
 
         if (currentHealth > maxHealth)
@@ -31,12 +30,8 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    void ShowDamage(string text)
-    {
-        if (floatingTextPrefab)
-        {
-            GameObject prefab = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity);
-            prefab.GetComponentInChildren<TextMesh>().text = text;
-        }
+    public void RestartHealth(){
+        currentHealth = maxHealth;
+        spriteRenderer.color = Color.white;
     }
 }

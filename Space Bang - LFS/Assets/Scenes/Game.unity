@@ -218,7 +218,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &120972150
 GameObject:
@@ -319,7 +319,7 @@ RectTransform:
   - {fileID: 1645841953}
   - {fileID: 612015720}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -445,7 +445,7 @@ RectTransform:
   m_Children:
   - {fileID: 1217082517}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1327,7 +1327,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2462611, y: 1}
+    m_SensorSize: {x: 2.241791, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1565,7 +1565,7 @@ RectTransform:
   - {fileID: 303570835}
   - {fileID: 1645453317}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2725,6 +2725,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2750801587128174672, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: currentHealth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2750801587128174685, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: player
       value: 
@@ -2961,7 +2965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8115442057495158801, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
       propertyPath: pooledAmount
-      value: 30
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8115442057495158802, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
       propertyPath: m_RootOrder
