@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public float speed { get; private set; } = 2.5f;
+    public float speed { get; private set; } = 2.25f;
     public float respeed { get; private set; }
     public float attackDamage { get; private set; } = 1f;
     public float attackSpeed { get; private set; } = 1.5f;
