@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  facingRight: 1
+  playerAimWeapon: {fileID: 0}
 --- !u!114 &2750801587128174672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7b2a94a875e984b81ccb9b71b403b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimTransform: {fileID: 0}
+  player: {fileID: 0}
   mainCam: {fileID: 0}
 --- !u!114 &2750801587128174662
 MonoBehaviour:
@@ -256,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3367525293623977657, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
       propertyPath: timeBetweenFiring
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3367525294377218330, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
       propertyPath: m_Name
