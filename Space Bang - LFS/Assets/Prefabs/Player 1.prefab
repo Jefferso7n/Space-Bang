@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2750801587128174685}
   - component: {fileID: 2750801587128174662}
   - component: {fileID: 2750801587128174659}
+  - component: {fileID: 516458870}
+  - component: {fileID: 516458871}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -78,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 8712d2b75e5982d419d4954c46fcd29b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,9 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5827ca860fe5fcd418d818d53d71ba6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 516458870}
   facingRight: 1
-  playerAimWeapon: {fileID: 0}
+  playerAimWeapon: {fileID: 2750801587128174685}
 --- !u!114 &2750801587128174672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  currentHealth: 5
+  currentHealth: 0
 --- !u!114 &2750801587128174685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7b2a94a875e984b81ccb9b71b403b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimTransform: {fileID: 0}
-  player: {fileID: 0}
+  aimTransform: {fileID: 2750801588791193755}
+  player: {fileID: 2750801587168985154}
   mainCam: {fileID: 0}
 --- !u!114 &2750801587128174662
 MonoBehaviour:
@@ -146,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683f039f584658e438b64e2d2e532785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  maxSpeed: 2
 --- !u!114 &2750801587128174659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +163,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalDamage: 0
   enemiesKilled: 0
+--- !u!50 &516458870
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750801587168985159}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &516458871
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750801587168985159}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.017926365, y: -0.029458702}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.40443176, y: 0.9410826}
+  m_EdgeRadius: 0
 --- !u!1 &2750801588791193754
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3367525293623977656, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0.323
       objectReference: {fileID: 0}
     - target: {fileID: 3367525293623977656, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -262,6 +311,10 @@ PrefabInstance:
       propertyPath: timeBetweenFiring
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 3367525293623977662, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b5a10c2a4d7e4f9419b092317c052b4e, type: 3}
     - target: {fileID: 3367525294377218330, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
       propertyPath: m_Name
       value: BulletSpawner (Pooler)
