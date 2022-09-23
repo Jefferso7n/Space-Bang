@@ -17,7 +17,10 @@ public class EnemyHealth : MonoBehaviour
 
     public void UpdateHealth(float mod)
     {
-        spriteRenderer.color = Color.red;
+        Color _aColor = spriteRenderer.color;
+        _aColor.a -= 0.25f;
+        spriteRenderer.color = _aColor;
+
         currentHealth += mod;
 
         if (currentHealth > maxHealth)
