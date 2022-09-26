@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SettingsScreen : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class SettingsScreen : MonoBehaviour
     private int selectedResolution;
     public TMP_Text resolutionLabel;
 
-    // Start is called before the first frame update
     void Start()
     {
         fullscreenTog.isOn = Screen.fullScreen;
@@ -40,16 +40,18 @@ public class SettingsScreen : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.sceneCount > 1)
+        {
+            SceneManager.UnloadSceneAsync("SettingsMenu");
+        }
     }
 
     public void ResLeft(){
         selectedResolution--;
         if (selectedResolution < 0){
-            selectedResolution = 0; // ou infinito modo: count-1
+            selectedResolution = 0; // Ou modo scroller infinito: count-1
         }
         UpdateResLabel();
     }
@@ -57,7 +59,7 @@ public class SettingsScreen : MonoBehaviour
     public void ResRight(){
         selectedResolution++;
         if (selectedResolution > resolutions.Count - 1){
-            selectedResolution = resolutions.Count - 1; // ou infinito modo: 0
+            selectedResolution = resolutions.Count - 1; // Ou modo scroller infinito: 0
         }
         UpdateResLabel();        
     }
@@ -69,7 +71,6 @@ public class SettingsScreen : MonoBehaviour
 
 
     public void ApplyGraphics(){
-//        Screen.fullScreen = fullscreenTog.isOn;
         Screen.SetResolution(resolutions[selectedResolution].horizontal, resolutions[selectedResolution].vertical, fullscreenTog.isOn);
     }
 }

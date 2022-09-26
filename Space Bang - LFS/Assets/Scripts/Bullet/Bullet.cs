@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float bulletDamage { get; private set; } = 20f;
-
     private Camera mainCam;
     private Vector3 mousePos;
     private Rigidbody2D rb;
@@ -13,12 +11,11 @@ public class Bullet : MonoBehaviour
     public float force;
 
     private Vector3 direction, rotation;
-    private Statistics playerStatistics;
 
-    [SerializeField] private GameObject floatingTextPrefab;
+    [SerializeField] ScoreKeeper scoreKeeper;
+    [SerializeField] DamageDealer damageDealer;
 
     void Awake(){
-        playerStatistics = GameObject.FindGameObjectWithTag("Player").GetComponent<Statistics>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
@@ -51,28 +48,20 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            playerStatistics.updateDamage(bulletDamage);
-            DamagePopup.Create(other.transform.position, bulletDamage);
+            DamagePopup.Create(other.transform.position, damageDealer.GetDamage());
+            scoreKeeper.ModifyDamage(damageDealer.GetDamage());
 
             EnemyHealth EnemyHealth = other.gameObject.GetComponent<EnemyHealth>();
             EnemySpawnPosition EnemySpawnPosition = other.gameObject.GetComponent<EnemySpawnPosition>();
-            EnemyHealth.UpdateHealth(-bulletDamage);
+            EnemyHealth.TakeDamage(damageDealer.GetDamage());
 
             if (EnemyHealth.currentHealth <= 0f){
-                playerStatistics.updateKills();
-
                 EnemyHealth.RestartHealth();
                 EnemySpawnPosition.SpawnInRange(other.gameObject);
                 other.gameObject.SetActive(false);
             }
             gameObject.SetActive(false);
         }
-    }
-
-    void ShowDamage(string damage)
-    {
-        Instantiate(floatingTextPrefab, transform.position, Quaternion.identity);
-//        floatingTextPrefab.GetComponentInChildren<TextMesh>().text = damage;
     }
 
     void Disable(){

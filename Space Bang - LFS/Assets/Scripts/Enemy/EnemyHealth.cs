@@ -5,36 +5,34 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
 
-    public float maxHealth = 40f;
+    public int health = 50;
     public float currentHealth;
-    SpriteRenderer spriteRenderer;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] ScoreKeeper scoreKeeper;
 
     private void Awake()
     {
-        currentHealth = maxHealth;
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        currentHealth = health;
     }
 
-    public void UpdateHealth(float mod)
+    public void TakeDamage(int damage)
     {
-        Color _aColor = spriteRenderer.color;
-        _aColor.a -= 0.25f;
-        spriteRenderer.color = _aColor;
-
-        currentHealth += mod;
-
-        if (currentHealth > maxHealth)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
-            currentHealth = maxHealth;
-        }
-        else if (currentHealth <= 0f)
-        {
-            currentHealth = 0f;
+            Die();
         }
     }
 
-    public void RestartHealth(){
-        currentHealth = maxHealth;
+    void Die()
+    {
+        currentHealth = 0;
+        scoreKeeper.ModifyKills();
+    }
+
+    public void RestartHealth()
+    {
+        currentHealth = health;
         spriteRenderer.color = Color.white;
     }
 }

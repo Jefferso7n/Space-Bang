@@ -10,19 +10,11 @@ public class Shooting : MonoBehaviour
     public bool canFire;
     private float timer;
     public float timeBetweenFiring;
-
-    void Awake()
-    {
-//        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-    }
+    [SerializeField] PlayerHealth playerHealth;
+    [SerializeField] AudioPlayer audioPlayer;
 
     void FixedUpdate()
     {
-        // mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        // Vector3 rotation = mousePos - transform.position;
-        // float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        // transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
         if (!canFire)
         {
             timer += Time.deltaTime;
@@ -33,7 +25,7 @@ public class Shooting : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(0) && canFire)
+        if (Input.GetMouseButton(0) && canFire && playerHealth.IsAlive())
         {
             canFire = false;
             GameObject obj = ObjectPooler.current.GetPooledObject();
@@ -42,6 +34,7 @@ public class Shooting : MonoBehaviour
             obj.transform.position = bulletTransform.position;
             obj.transform.rotation = Quaternion.identity;
             obj.SetActive(true);
+            audioPlayer.PlayShootingClip();
         }
     }
 }
