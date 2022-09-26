@@ -5,31 +5,61 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth;
-//   public float currentHealth { get; private set; } = 5f;
-    public float currentHealth = 5f;
+    [SerializeField] int health = 50;
+    [SerializeField] bool applyCameraShake;
 
-    private void Awake()
+    CameraShake cameraShake;
+    AudioPlayer audioPlayer;
+    ScoreKeeper scoreKeeper;
+    LevelManager levelManager;
+    bool isAlive = true;
+
+    void Awake()
     {
-        currentHealth = maxHealth;
+        cameraShake = Camera.main.GetComponent<CameraShake>();
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
-    public void UpdateHealth(float mod)
-    {
-        currentHealth += mod;
+    // Effects to occur when the player collides with the enemy
+    public void HitEffect(){
+        ShakeCamera();
+        audioPlayer.PlayDamageClip();
+    }
 
-        if (currentHealth > maxHealth)
+    public int GetHealth()
+    {
+        return health;
+    }
+
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
         {
-            currentHealth = maxHealth;
-        } else if (currentHealth <= 0f)
-        {
-//            currentHealth = 0f;
-            Invoke("LoadGameOver", 0f); //Carregar cena depois de X segundos, depois ajustar isso com a animação de morte
-//            currentHealth = maxHealth;
+            Die();
         }
     }
 
-    void LoadGameOver(){
-        SceneManager.LoadScene("GameOverScreen");
+    void Die()
+    {
+        health = 0;
+        isAlive = false;
+        levelManager.LoadGameOver();
+    }
+
+    public bool IsAlive()
+    {
+        return isAlive;
+    }
+
+    void ShakeCamera()
+    {
+        if (cameraShake != null && applyCameraShake)
+        {
+            cameraShake.Play();
+        }
     }
 }

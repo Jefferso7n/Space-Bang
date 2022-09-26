@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
+    #region Variables
     public float speed { get; private set; } = 2.25f;
     public float respeed { get; private set; }
-    public float attackDamage { get; private set; } = 1f;
-    public float attackSpeed { get; private set; } = 1.5f;
+    public float attackSpeed { get; private set; } = 2.5f;
     public float canAttack;
 
+    DamageDealer damageDealer;
+    Transform target;
+    [SerializeField] Rigidbody2D rb;
+    Vector3 distance;
+    #endregion
 
-    private Transform target;
-    public Rigidbody2D rb;
-    private Vector3 distance;
+    void Awake()
+    {
+        damageDealer = GetComponent<DamageDealer>();
+    }
 
-    // Start is called before the first frame update
     void Start()
     {
         respeed = speed;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         distance = target.position - transform.position;
@@ -32,11 +36,20 @@ public class EnemyFollow : MonoBehaviour
         rb.AddForce(distance);
     }
 
+    //The player loses life when touching an enemy (Collision2D)
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
+            PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+
+            if (playerHealth.IsAlive())
+            {
+                playerHealth.HitEffect();
+            }
+
+            playerHealth.TakeDamage(damageDealer.GetDamage());
+
             canAttack = 0f;
         }
     }
@@ -45,9 +58,17 @@ public class EnemyFollow : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+
             if (attackSpeed <= canAttack)
             {
-                other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
+                if (playerHealth.IsAlive())
+                {
+                    playerHealth.HitEffect();
+                }
+
+                playerHealth.TakeDamage(damageDealer.GetDamage());
+
                 canAttack = 0f;
             }
             else
@@ -56,41 +77,4 @@ public class EnemyFollow : MonoBehaviour
             }
         }
     }
-
-//     void OnCollisionExit2D(Collision2D other){
-//         speed = 0f;
-//         Debug.Log("Exit");
-//     }
-
-    // void OnTriggerStay2D(Collider2D other){
-    //     if (other.gameObject.tag == "Player")
-    //     {
-    //         if (attackSpeed <= canAttack)
-    //         {
-    //             other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
-    //             canAttack = 0f;
-    //         }
-    //         else
-    //         {
-    //             canAttack += Time.fixedDeltaTime;
-    //         }
-    //     }
-    // }
-
-    // void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.tag == "Player")
-    //     {
-    //         other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
-    //         canAttack = 0f;
-    //     }
-    // }
-
-    // void OnTriggerExit2D(Collider2D other)
-    // {
-    //     if (other.gameObject.tag == "Player")
-    //     {
-    //         target = null;
-    //     }
-    // }
 }
