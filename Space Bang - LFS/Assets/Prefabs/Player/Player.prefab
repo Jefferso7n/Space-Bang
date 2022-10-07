@@ -182,7 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f940a160bba310849bb22b2b21048c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 0
+  maxHealth: 100
   applyCameraShake: 0
 --- !u!114 &2750801587128174662
 MonoBehaviour:
