@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] int health = 50;
+    int health;
+    [SerializeField] int maxHealth = 100;
+
     [SerializeField] bool applyCameraShake;
 
     CameraShake cameraShake;
@@ -16,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Awake()
     {
+        health = maxHealth;
         cameraShake = Camera.main.GetComponent<CameraShake>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
@@ -33,6 +36,10 @@ public class PlayerHealth : MonoBehaviour
         return health;
     }
 
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 
     public void TakeDamage(int damage)
     {

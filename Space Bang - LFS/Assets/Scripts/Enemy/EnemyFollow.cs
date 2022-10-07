@@ -9,7 +9,7 @@ public class EnemyFollow : MonoBehaviour
     public float respeed { get; private set; }
     public float attackSpeed { get; private set; } = 2.5f;
     public float canAttack;
-    public AnimationCurve a;
+    //    public AnimationCurve a;
 
     DamageDealer damageDealer;
     Transform target;
@@ -35,7 +35,7 @@ public class EnemyFollow : MonoBehaviour
         distance = distance * speed;
 
         rb.AddForce(distance);
-        a.Evaluate()
+        //        a.Evaluate();
     }
 
     //The player loses life when touching an enemy (Collision2D)
@@ -48,9 +48,8 @@ public class EnemyFollow : MonoBehaviour
             if (playerHealth.IsAlive())
             {
                 playerHealth.HitEffect();
+                playerHealth.TakeDamage(damageDealer.GetDamage());
             }
-
-            playerHealth.TakeDamage(damageDealer.GetDamage());
 
             canAttack = 0f;
         }
@@ -67,9 +66,8 @@ public class EnemyFollow : MonoBehaviour
                 if (playerHealth.IsAlive())
                 {
                     playerHealth.HitEffect();
+                    playerHealth.TakeDamage(damageDealer.GetDamage());
                 }
-
-                playerHealth.TakeDamage(damageDealer.GetDamage());
 
                 canAttack = 0f;
             }

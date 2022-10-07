@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingClip: {fileID: 8300000, guid: 15fa3c55a1c5de24ba744ac12e217bc3, type: 3}
-  shootingVolume: 0.3
-  damageClip: {fileID: 8300000, guid: 4f504c51fbf21cb4bb5c527cbc36537c, type: 3}
-  damageVolume: 1
+  shootingVolume: 0.7
+  damageClip: {fileID: 8300000, guid: 09038a5026d602f4686d5eeb6f6da64f, type: 3}
+  damageVolume: 2.5
 --- !u!82 &4520979550589739736
 AudioSource:
   m_ObjectHideFlags: 0
