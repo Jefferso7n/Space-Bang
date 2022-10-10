@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    #region Declarations
     [SerializeField] float shakeDuration = 0.3f;
     [SerializeField] float shakeMagnitude = 0.15f;
     Vector3 initialPosition;
+    #endregion
 
+    #region Shake
     void Start()
     {
         initialPosition = transform.position;
@@ -23,11 +26,13 @@ public class CameraShake : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < shakeDuration)
         {
+            // The camera is shaken in a certain period of time (shakeDuration) and in a certain area (shakeMagnitude).
             transform.position = initialPosition + (Vector3)Random.insideUnitCircle * shakeMagnitude;
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         transform.position = initialPosition;
     }
+    #endregion
 
 }

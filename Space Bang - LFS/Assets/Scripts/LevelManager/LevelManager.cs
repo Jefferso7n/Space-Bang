@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
     #region Loads
     public void LoadGame()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; // To ensure time is not paused when starting the game
         scoreKeeper.ResetScore();
         SceneManager.LoadScene("Game");
     }
@@ -62,7 +62,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadGameOver()
     {
-        StartCoroutine(WaitAndLoad("GameOver", sceneLoadDelay));
+        StartCoroutine(WaitAndLoad("GameOver", sceneLoadDelay)); // Load GameOver screen only after a delay
     }
     #endregion
 

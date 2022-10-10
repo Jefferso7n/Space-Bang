@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour
             EnemySpawnPosition EnemySpawnPosition = other.gameObject.GetComponent<EnemySpawnPosition>();
             EnemyHealth.TakeDamage(damageDealer.GetDamage());
 
-            if (EnemyHealth.currentHealth <= 0f){
+            if (EnemyHealth.GetCurrentHealth() <= 0){
                 EnemyHealth.RestartHealth();
                 EnemySpawnPosition.SpawnInRange(other.gameObject);
                 other.gameObject.SetActive(false);

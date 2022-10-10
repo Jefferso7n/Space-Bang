@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyPooler : MonoBehaviour
 {
+    #region Declarations
     public static EnemyPooler current;
     public GameObject pooledObject;
     public int pooledAmount;
@@ -11,9 +12,10 @@ public class EnemyPooler : MonoBehaviour
 
     private List<GameObject> pooledObjects;
 
-    [SerializeField]
-    private float time = 1f;
+    [SerializeField] private float time = 1f;
+    #endregion
 
+    #region Pooler
     void Start()
     {
         pooledObjects = new List<GameObject>();
@@ -28,14 +30,17 @@ public class EnemyPooler : MonoBehaviour
         StartCoroutine(SpawnAnEnemy());
     }
 
-    public GameObject GetPooledObject(){
+    public GameObject GetPooledObject()
+    {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (!pooledObjects[i].activeInHierarchy){
+            if (!pooledObjects[i].activeInHierarchy)
+            {
                 return pooledObjects[i];
             }
         }
-        if (willGrow){
+        if (willGrow)
+        {
             GameObject obj = Instantiate(pooledObject);
             pooledObjects.Add(obj);
             return obj;
@@ -43,8 +48,11 @@ public class EnemyPooler : MonoBehaviour
 
         return null;
     }
+    #endregion
 
-    void SpawnEnemy(){
+    #region Spawn
+    void SpawnEnemy()
+    {
         GameObject obj = GetPooledObject();
         if (obj == null) return;
 
@@ -55,9 +63,10 @@ public class EnemyPooler : MonoBehaviour
 
     IEnumerator SpawnAnEnemy()
     {
-        SpawnEnemy();            
+        SpawnEnemy();
         yield return new WaitForSeconds(time);
         StartCoroutine(SpawnAnEnemy());
     }
+    #endregion
 
 }

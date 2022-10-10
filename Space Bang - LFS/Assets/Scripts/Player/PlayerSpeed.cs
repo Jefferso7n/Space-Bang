@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerSpeed : MonoBehaviour
 {
+    #region Declarations
     [SerializeField] private float maxSpeed;
     public float currentSpeed { get; private set; }
+    #endregion
 
+    #region Speed
     void Awake(){
         currentSpeed = maxSpeed;
     }
@@ -15,4 +18,6 @@ public class PlayerSpeed : MonoBehaviour
     {
         currentSpeed += mod;
     }
+    #endregion
+
 }

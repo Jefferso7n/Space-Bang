@@ -5,15 +5,18 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    #region Declarations
     [SerializeField]
     private TextMeshProUGUI minute1, minute2, colon, second1, second2;
-    public float timeDuration = 15f, timer, timerUP, flashTimer, flashDuration = 1f;
+    public float timeDuration = 15f, timer, timerUP, flashStart = 10f, flashTimer, flashDuration = 1f;
 
     [SerializeField]
-    private bool countDown = true;
+    private bool countDown = true; // By default there will be countDown
     [SerializeField] LevelManager levelManager;
     [SerializeField] ScoreKeeper scoreKeeper;
+    #endregion
 
+    #region Timer
     void Start()
     {
         ResetTimer();
@@ -23,28 +26,29 @@ public class Timer : MonoBehaviour
     {
         timerUP += Time.fixedDeltaTime;
 
-        if (countDown && timer <= 0f)
+        if (countDown && timer <= 0f) // If time runs out, load GameOver screen
         {
             levelManager.LoadGameOverInstantly();
         }
-        else if (!countDown && timer < timeDuration)
+        else if (!countDown && timer < timeDuration) // If there is no countDown, then the timer will only increase (no gameover).
         {
             timer += Time.fixedDeltaTime;
             UpdateTimerDisplay(timer);
         }
-        else if (countDown && timer > 10f)
+        else if (countDown && timer > flashStart) // if there is more than 10 seconds(flashStart), the timer display will work normally
         {
             timer -= Time.fixedDeltaTime;
             UpdateTimerDisplay(timer);
             UpdateGameTimer(timerUP);
         }
-        else
+        else // But if there is less than 10 seconds, the timer display will be flashing
         {
             timer -= Time.fixedDeltaTime;
             Flash();
         }
     }
 
+    // Reset timer at Start
     private void ResetTimer()
     {
         if (countDown)
@@ -56,14 +60,16 @@ public class Timer : MonoBehaviour
             timer = 0f;
         }
         timerUP = 0f;
-        SetTextDisplay(true);
+        SetTextDisplay(true); // Display timer
     }
 
+    // Update timer text
     private void UpdateTimerDisplay(float time)
     {
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
 
+        // Format timer
         string currentTime = string.Format("{00:00}{1:00}", minutes, seconds);
         minute1.text = currentTime[0].ToString();
         minute2.text = currentTime[1].ToString();
@@ -80,9 +86,10 @@ public class Timer : MonoBehaviour
         scoreKeeper.ModifyTimer(currentTime_);
     }
 
+    // Flash the timer
     private void Flash()
     {
-        if (countDown && timer < 0f)
+        if (countDown && timer < 0f) // To avoid negative timer
         {
             timer = 0f;
         }
@@ -110,6 +117,7 @@ public class Timer : MonoBehaviour
 
     }
 
+    // Display the timer text
     private void SetTextDisplay(bool enabled)
     {
         minute1.enabled = enabled;
@@ -118,4 +126,6 @@ public class Timer : MonoBehaviour
         second1.enabled = enabled;
         second2.enabled = enabled;
     }
+    #endregion
+
 }

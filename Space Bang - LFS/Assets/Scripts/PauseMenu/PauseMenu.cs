@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    #region Declarations
     public static bool GameIsPaused;
     public GameObject pauseMenuUI;
+    #endregion
 
     void Start()
     {
@@ -15,8 +17,11 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.sceneCount == 1)
+        // Added sceneCount condition to avoid conflicts with Settings Menu screen
         {
+            // Player can enable/disable pause by pressing Escape key
             if (GameIsPaused)
             {
                 Resume();
@@ -28,6 +33,8 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    #region Resume / Pause
+    // When resumed, the pause menu disappears and time returns to normal scale.
     void Resume()
     {
         pauseMenuUI.SetActive(false);
@@ -35,10 +42,13 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
     }
 
+    // When paused, time is stopped and the options menu opens
     void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
+    #endregion
+
 }
