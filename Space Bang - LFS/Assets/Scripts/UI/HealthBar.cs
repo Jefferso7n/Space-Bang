@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    #region Declarations
     [SerializeField] Image circleBar;
     [SerializeField] Image extraBar;
 
@@ -13,7 +14,9 @@ public class HealthBar : MonoBehaviour
 
     public float circlePercentage = 0.4f; //How much of the whole healthBar is the circular part
     public float circleFillAmount = 0.738f; //How much of the circular part is used in the healthbar
+    #endregion
 
+    #region Fill Health Bar
     void FixedUpdate()
     {
         CircleFill();
@@ -22,7 +25,7 @@ public class HealthBar : MonoBehaviour
 
     private void CircleFill()
     {
-        float healthPercentage =  (float) playerHealth.GetHealth() / playerHealth.GetMaxHealth();
+        float healthPercentage = (float)playerHealth.GetHealth() / playerHealth.GetMaxHealth();
         float circleFill = healthPercentage / circlePercentage;
 
         circleFill *= circleFillAmount;
@@ -43,4 +46,6 @@ public class HealthBar : MonoBehaviour
 
         extraBar.fillAmount = extraFill;
     }
+    #endregion
+
 }

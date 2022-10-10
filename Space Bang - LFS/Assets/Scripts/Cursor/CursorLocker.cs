@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CursorLocker : MonoBehaviour
 {
+    //Confine cursor to the game window
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Confined;

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class EnemySpawnPosition : MonoBehaviour
 {
+    #region Declarations
     [SerializeField]
     private float spawnRadius = 11f;
     private Vector2 spawnPosition;
     private GameObject player;
+    #endregion
 
     void Awake()
     {
-//        Debug.Log("Awake");
         player = GameObject.Find("Player");
     }
 
+    // Generates initial spawn positions for enemies
     public Vector2 SpawnInRange(GameObject obj){
         spawnPosition = player.transform.position;
         spawnPosition += Random.insideUnitCircle.normalized * spawnRadius * 1.5f;

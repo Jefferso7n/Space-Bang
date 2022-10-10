@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-
+    #region Declarations
     public int health = 50;
-    public float currentHealth;
+    int currentHealth;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] ScoreKeeper scoreKeeper;
+    #endregion
 
     private void Awake()
     {
-        currentHealth = health;
+        currentHealth = health; //Sets current health equal to maximum health
     }
+
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        currentHealth -= damage; // Decreases health according to damage taken 
         if (currentHealth <= 0)
         {
             Die();
@@ -26,13 +28,19 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        currentHealth = 0;
-        scoreKeeper.ModifyKills();
+        currentHealth = 0; // To avoid negative health
+        scoreKeeper.ModifyKills(); // If the enemy dies, it will add to the player's score
     }
 
-    public void RestartHealth()
+    public void RestartHealth() //Will restore the enemy entirely
     {
         currentHealth = health;
         spriteRenderer.color = Color.white;
     }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
 }

@@ -5,16 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    int health;
+    #region Declarations
     [SerializeField] int maxHealth = 100;
-
     [SerializeField] bool applyCameraShake;
 
     CameraShake cameraShake;
     AudioPlayer audioPlayer;
     ScoreKeeper scoreKeeper;
     LevelManager levelManager;
+
+    int health;
     bool isAlive = true;
+    #endregion
 
     void Awake()
     {
@@ -25,12 +27,7 @@ public class PlayerHealth : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
     }
 
-    // Effects to occur when the player collides with the enemy
-    public void HitEffect(){
-        ShakeCamera();
-        audioPlayer.PlayDamageClip();
-    }
-
+    #region Health
     public int GetHealth()
     {
         return health;
@@ -41,6 +38,13 @@ public class PlayerHealth : MonoBehaviour
         return maxHealth;
     }
 
+    public bool IsAlive()
+    {
+        return isAlive;
+    }
+    #endregion
+
+    #region Damage
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -56,10 +60,14 @@ public class PlayerHealth : MonoBehaviour
         isAlive = false;
         levelManager.LoadGameOver();
     }
+    #endregion
 
-    public bool IsAlive()
+    #region Effects
+    // Effects to occur when the player collides with an enemy
+    public void HitEffect()
     {
-        return isAlive;
+        ShakeCamera();
+        audioPlayer.PlayDamageClip();
     }
 
     void ShakeCamera()
@@ -69,4 +77,6 @@ public class PlayerHealth : MonoBehaviour
             cameraShake.Play();
         }
     }
+    #endregion
+
 }

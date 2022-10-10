@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
+    // Responsible for managing enemy and player damage
     [SerializeField] int damage = 10;
 
     public int GetDamage(){

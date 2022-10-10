@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    public static ObjectPooler current;
+    #region Declarations
+//    public static ObjectPooler current;
     public GameObject pooledObject;
     public int pooledAmount;
     public bool willGrow;
 
     private List<GameObject> pooledObjects;
+    #endregion
 
+    #region Pooler
     void Start()
     {
         pooledObjects = new List<GameObject>();
-        current = this;
+//        current = this;
         for (int i = 0; i < pooledAmount; i++)
         {
             GameObject obj = Instantiate(pooledObject);
@@ -23,14 +26,17 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledObject(){
+    public GameObject GetPooledObject()
+    {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (!pooledObjects[i].activeInHierarchy){
+            if (!pooledObjects[i].activeInHierarchy)
+            {
                 return pooledObjects[i];
             }
         }
-        if (willGrow){
+        if (willGrow)
+        {
             GameObject obj = Instantiate(pooledObject);
             pooledObjects.Add(obj);
             return obj;
@@ -38,4 +44,6 @@ public class ObjectPooler : MonoBehaviour
 
         return null;
     }
+    #endregion
+
 }
