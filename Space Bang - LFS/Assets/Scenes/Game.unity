@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4520979550589739736, guid: 94b733dd053689a4eb998101cd6824fb, type: 3}
       propertyPath: m_Volume
-      value: 0.4
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4520979550589739749, guid: 94b733dd053689a4eb998101cd6824fb, type: 3}
       propertyPath: m_Name
@@ -330,8 +330,13 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &842951562 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4509370791066401594, guid: 01775e9d216dd9a49bbac8df22e4b63d, type: 3}
+  m_PrefabInstance: {fileID: 4509370791518618554}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1000488033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -678,37 +683,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1114605168, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821914358, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 832297586121749544, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 832297586121749550, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 832297586121749550, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_Color.g
-      value: 0.87843144
-      objectReference: {fileID: 0}
-    - target: {fileID: 832297586121749550, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 832297586121749550, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 832297587387431505, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 2750801587128174672, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: maxHealth
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2750801587128174685, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: mainCam
@@ -716,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 2750801587168985154, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2750801587168985154, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: m_LocalPosition.x
@@ -762,18 +739,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8600082638524191312, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 8600082638524191318, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8600082639789677609, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
 --- !u!1001 &4509370791518618554
@@ -783,6 +748,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4509370791066401593, guid: 01775e9d216dd9a49bbac8df22e4b63d, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 842951562}
+    - target: {fileID: 4509370791066401733, guid: 01775e9d216dd9a49bbac8df22e4b63d, type: 3}
+      propertyPath: orthographic size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509370791541032287, guid: 01775e9d216dd9a49bbac8df22e4b63d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4509370791945657512, guid: 01775e9d216dd9a49bbac8df22e4b63d, type: 3}
       propertyPath: m_Name
       value: Cameras
