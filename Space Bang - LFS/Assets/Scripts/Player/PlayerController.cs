@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     #region Declarations
     public Rigidbody2D rb;
     Vector2 movement;
-    public bool facingRight = true;
+    [HideInInspector] public bool facingRight = true, isMoving = false;
     public PlayerAimWeapon playerAimWeapon;
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] PlayerSpeed playerSpeed;
@@ -21,8 +21,17 @@ public class PlayerController : MonoBehaviour
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
 
+            if (movement == Vector2.zero)
+            {
+                isMoving = false;
+            }
+            else
+            {
+                isMoving = true;
+            }
+
             // Move
-            rb.MovePosition(rb.position + movement * playerSpeed.currentSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + movement * playerSpeed.GetSpeed() * Time.fixedDeltaTime);
 
             // Flip player character after changing horizontal movement
             if (movement.x > 0f && !facingRight)

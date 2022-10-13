@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5821564746780040301}
   - component: {fileID: 4160332267578959894}
   - component: {fileID: 3366906689585293253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player Collision Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6476332442246101296}
   - component: {fileID: -2651893593358499978}
   - component: {fileID: -4522039590841981173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -231,7 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a72b10784ee44c41aeb49b5aa4c5b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canAttack: 1
+  speed: 1.75
+  attackSpeed: 2.5
+  canAttack: 0
   rb: {fileID: 3011293730575019874}
 --- !u!114 &3103684942328542137
 MonoBehaviour:
@@ -246,7 +248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  currentHealth: 0
   spriteRenderer: {fileID: 8441223448582559646}
   scoreKeeper: {fileID: 8024950955291860333, guid: 42cf8b44948026448a4d7c042d7797eb, type: 3}
 --- !u!114 &6476332442246101296
@@ -274,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e049dda3da5ea49916d9f8ac096dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 3
+  thrust: 2.75
   knockTime: 0.35
   rb: {fileID: 3011293730575019874}
 --- !u!114 &-4522039590841981173

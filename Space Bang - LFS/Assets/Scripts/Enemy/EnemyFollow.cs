@@ -5,16 +5,14 @@ using UnityEngine;
 public class EnemyFollow : MonoBehaviour
 {
     #region Declarations
-    public float speed { get; private set; } = 2.25f;
-    public float respeed { get; private set; }
-    public float attackSpeed { get; private set; } = 2.5f;
-    public float canAttack;
-    //    public AnimationCurve a;
+    [SerializeField] float speed = 1.75f;
+    [SerializeField] float attackSpeed = 2.5f;
+    private float canAttack;
 
     DamageDealer damageDealer;
     Transform target;
     [SerializeField] Rigidbody2D rb;
-    Vector3 distance;
+    private Vector2 movement;
     #endregion
 
     void Awake()
@@ -22,23 +20,34 @@ public class EnemyFollow : MonoBehaviour
         damageDealer = GetComponent<DamageDealer>();
     }
 
+    #region Movement
     void Start()
     {
-        respeed = speed;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        // Moves the enemy to the player (target)
-        distance = target.position - transform.position;
-        distance = distance.normalized;
-        distance = distance * speed;
+        //Gets the direction to the player (target)
+        Vector3 direction = target.position - transform.position;
 
-        rb.AddForce(distance);
-        //        a.Evaluate();
+        direction.Normalize();
+        movement = direction;
     }
 
+    private void FixedUpdate()
+    {
+        MoveEnemy(movement);
+    }
+
+    private void MoveEnemy(Vector2 direction)
+    {
+        // Moves the enemy to the player (target)
+        rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
+    }
+    #endregion
+
+    #region Collisions
     //The player loses life when colliding with an enemy
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -80,4 +89,5 @@ public class EnemyFollow : MonoBehaviour
             }
         }
     }
+    #endregion
 }

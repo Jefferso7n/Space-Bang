@@ -73,7 +73,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Time: 1
   m_Parameters:
     serializedVersion: 3
@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 516458870}
   facingRight: 1
+  isMoving: 0
   playerAimWeapon: {fileID: 2750801587128174685}
   playerHealth: {fileID: 2750801587128174672}
   playerSpeed: {fileID: 2750801587128174662}
@@ -337,7 +338,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683f039f584658e438b64e2d2e532785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 1.5
+  speed: 1.75
+  duration: 2
+  speedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  playerController: {fileID: 2750801587168985155}
 --- !u!1 &2750801588791193754
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,9 +467,25 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 2750801587128174672}
+    - target: {fileID: 3367525293623977662, guid: 7f3804c29c5e7a84fad2c537834e7280, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367525293623977662, guid: 7f3804c29c5e7a84fad2c537834e7280, type: 3}
+      propertyPath: m_Color.g
+      value: 0.87843144
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367525293623977662, guid: 7f3804c29c5e7a84fad2c537834e7280, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3367525294806034625, guid: 7f3804c29c5e7a84fad2c537834e7280, type: 3}
       propertyPath: m_Name
       value: Machine Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367525294806034625, guid: 7f3804c29c5e7a84fad2c537834e7280, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f3804c29c5e7a84fad2c537834e7280, type: 3}
@@ -464,7 +507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3367525293623977656, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.36
+      value: 0.375
       objectReference: {fileID: 0}
     - target: {fileID: 3367525293623977656, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -506,9 +549,17 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 2750801587128174672}
+    - target: {fileID: 3367525293623977662, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3367525294806034625, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367525294806034625, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
