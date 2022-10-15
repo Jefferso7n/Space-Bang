@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WeaponSwitching : MonoBehaviour
 {
-    public int selectedWeapon = 0;
+    [SerializeField] bool limitedScroller = true;
+    int selectedWeapon = 0;
 
     void Start()
     {
@@ -20,7 +21,14 @@ public class WeaponSwitching : MonoBehaviour
         {
             if (selectedWeapon >= transform.childCount - 1)
             {
-                selectedWeapon = 0;
+                if (limitedScroller)    // To stay in the last weapon
+                {
+                    selectedWeapon = transform.childCount - 1;
+                }
+                else
+                {
+                    selectedWeapon = 0;
+                }
             }
             else
             {
@@ -31,7 +39,14 @@ public class WeaponSwitching : MonoBehaviour
         {
             if (selectedWeapon <= 0)
             {
-                selectedWeapon = transform.childCount - 1;
+                if (limitedScroller)    // To stay in the first weapon
+                {
+                    selectedWeapon = 0;
+                }
+                else
+                {
+                    selectedWeapon = transform.childCount - 1;
+                }
             }
             else
             {

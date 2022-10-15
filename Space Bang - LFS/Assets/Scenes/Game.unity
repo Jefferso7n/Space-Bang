@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4520979550589739736, guid: 94b733dd053689a4eb998101cd6824fb, type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4520979550589739749, guid: 94b733dd053689a4eb998101cd6824fb, type: 3}
       propertyPath: m_Name
@@ -330,7 +330,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &842951562 stripped
 Transform:
@@ -476,7 +476,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1490685702
 GameObject:
@@ -683,17 +683,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2750801587128174672, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-      propertyPath: maxHealth
-      value: 250
-      objectReference: {fileID: 0}
     - target: {fileID: 2750801587128174685, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 2750801587168985154, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2750801587168985154, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: m_LocalPosition.x
@@ -821,6 +817,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4643456718336166323, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643456718336166323, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643456718336166323, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4643456718583096252, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
       propertyPath: m_Name
       value: Canvas Game
@@ -873,10 +881,42 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4643456718701636923, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643456718701636923, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643456718701636923, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643456718701636923, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643456718701636923, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643456718701636923, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4643456718765098710, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 516458854}
+    - target: {fileID: 4643456718909157728, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643456719767370456, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4643456720219774067, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
       propertyPath: playerHealth
       value: 

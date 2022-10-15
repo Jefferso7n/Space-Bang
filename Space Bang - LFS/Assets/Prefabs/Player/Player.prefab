@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e09ce18efa806f4dbae0ddc64a2e4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedWeapon: 0
+  limitedScroller: 1
 --- !u!1001 &2681665253655843472
 PrefabInstance:
   m_ObjectHideFlags: 0

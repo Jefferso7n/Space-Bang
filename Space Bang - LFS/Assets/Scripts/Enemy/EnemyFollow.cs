@@ -45,6 +45,14 @@ public class EnemyFollow : MonoBehaviour
         // Moves the enemy to the player (target)
         rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
     }
+
+    public float GetSpeed(){
+        return speed;
+    }
+
+    public void setSpeed(float newSpeed){
+        speed = newSpeed;
+    }
     #endregion
 
     #region Collisions
