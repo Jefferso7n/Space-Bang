@@ -15,7 +15,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] ScoreKeeper scoreKeeper;
     [SerializeField] DamageDealer damageDealer;
 
-    void Awake(){
+    void Awake()
+    {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
@@ -26,8 +27,10 @@ public class Bullet : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
     }
 
-    private void OnEnable(){
-        if (rb != null){
+    private void OnEnable()
+    {
+        if (rb != null)
+        {
             StartConfiguration();
 
             rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
@@ -35,7 +38,8 @@ public class Bullet : MonoBehaviour
         Invoke("Disable", 2f);
     }
 
-    void StartConfiguration(){
+    void StartConfiguration()
+    {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         direction = mousePos - transform.position;
         rotation = transform.position - mousePos;
@@ -44,31 +48,31 @@ public class Bullet : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rotZ + 90);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        DamagePopup.Create(other.transform.position, damageDealer.GetDamage());
+        scoreKeeper.ModifyDamage(damageDealer.GetDamage());
+
+        EnemyHealth EnemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+        EnemySpawnPosition EnemySpawnPosition = other.gameObject.GetComponent<EnemySpawnPosition>();
+        EnemyHealth.TakeDamage(damageDealer.GetDamage());
+
+        if (EnemyHealth.GetCurrentHealth() <= 0)
         {
-            DamagePopup.Create(other.transform.position, damageDealer.GetDamage());
-            scoreKeeper.ModifyDamage(damageDealer.GetDamage());
-
-            EnemyHealth EnemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-            EnemySpawnPosition EnemySpawnPosition = other.gameObject.GetComponent<EnemySpawnPosition>();
-            EnemyHealth.TakeDamage(damageDealer.GetDamage());
-
-            if (EnemyHealth.GetCurrentHealth() <= 0){
-                EnemyHealth.RestartHealth();
-                EnemySpawnPosition.SpawnInRange(other.gameObject);
-                other.gameObject.SetActive(false);
-            }
-            gameObject.SetActive(false);
+            EnemyHealth.RestartHealth();
+            EnemySpawnPosition.SpawnInRange(other.gameObject);
+            other.gameObject.SetActive(false);
         }
+        gameObject.SetActive(false); //Disable bullet
     }
 
-    void Disable(){
+    void Disable()
+    {
         gameObject.SetActive(false);
     }
 
-    private void OnDisable(){
+    private void OnDisable()
+    {
         CancelInvoke();
     }
 
