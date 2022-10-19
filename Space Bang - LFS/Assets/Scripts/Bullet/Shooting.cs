@@ -14,7 +14,7 @@ public class Shooting : MonoBehaviour
 
     [SerializeField] ObjectPooler objectPooler;
     [SerializeField] PlayerHealth playerHealth;
-    [SerializeField] AudioPlayer audioPlayer;
+    [SerializeField] SFXPlayer sfxPlayer;
     #endregion
 
     void FixedUpdate()
@@ -45,7 +45,7 @@ public class Shooting : MonoBehaviour
             obj.transform.position = bulletTransform.position;
             obj.transform.rotation = Quaternion.identity;
             obj.SetActive(true);
-            audioPlayer.PlayShootingClip();
+            sfxPlayer.PlayShootingClip();
         }
         #endregion
     }

@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] bool applyCameraShake;
 
     CameraShake cameraShake;
-    AudioPlayer audioPlayer;
+    SFXPlayer sfxPlayer;
     ScoreKeeper scoreKeeper;
     LevelManager levelManager;
 
@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health = maxHealth;
         cameraShake = Camera.main.GetComponent<CameraShake>();
-        audioPlayer = FindObjectOfType<AudioPlayer>();
+        sfxPlayer = FindObjectOfType<SFXPlayer>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
         levelManager = FindObjectOfType<LevelManager>();
     }
@@ -67,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
     public void HitEffect()
     {
         ShakeCamera();
-        audioPlayer.PlayDamageClip();
+        sfxPlayer.PlayPlayerDamageClip();
     }
 
     void ShakeCamera()

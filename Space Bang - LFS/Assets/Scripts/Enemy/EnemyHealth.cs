@@ -9,16 +9,19 @@ public class EnemyHealth : MonoBehaviour
     int currentHealth;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] ScoreKeeper scoreKeeper;
+    SFXPlayer sfxPlayer;
     #endregion
 
     private void Awake()
     {
+        sfxPlayer = FindObjectOfType<SFXPlayer>();
         currentHealth = health; //Sets current health equal to maximum health
     }
 
 
     public void TakeDamage(int damage)
     {
+        sfxPlayer.PlayEnemyDamageClip();
         currentHealth -= damage; // Decreases health according to damage taken 
         if (currentHealth <= 0)
         {
