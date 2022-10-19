@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public PlayerAimWeapon playerAimWeapon;
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] PlayerSpeed playerSpeed;
+    [SerializeField] Animator anim;
     #endregion
 
     void FixedUpdate()
@@ -20,10 +21,34 @@ public class PlayerController : MonoBehaviour
             // Get inputs
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
+            if (movement == Vector2.right || movement == Vector2.left)
+            {
+                anim.SetBool("IsMovingFoward", true);
+                anim.SetBool("IsMovingUp", false);
+                anim.SetBool("IsMovingDown", false);
+            }
+
+            if (movement == Vector2.up)
+            {
+                anim.SetBool("IsMovingFoward", false);
+                anim.SetBool("IsMovingUp", true);
+                anim.SetBool("IsMovingDown", false);
+            }
+
+            if (movement == Vector2.down)
+            {
+                anim.SetBool("IsMovingFoward", false);
+                anim.SetBool("IsMovingUp", false);
+                anim.SetBool("IsMovingDown", true);
+            }
 
             if (movement == Vector2.zero)
             {
                 isMoving = false;
+
+                anim.SetBool("IsMovingFoward", false);
+                anim.SetBool("IsMovingUp", false);
+                anim.SetBool("IsMovingDown", false);
             }
             else
             {
