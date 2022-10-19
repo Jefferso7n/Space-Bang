@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] PlayerSpeed playerSpeed;
     [SerializeField] Animator anim;
+    [SerializeField] SFXPlayer sfxPlayer;
     #endregion
 
     void FixedUpdate()
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 isMoving = true;
+                sfxPlayer.PlayFlyingClip();
             }
 
             // Move
