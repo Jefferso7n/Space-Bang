@@ -15,6 +15,10 @@ public class Shooting : MonoBehaviour
     [SerializeField] ObjectPooler objectPooler;
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] SFXPlayer sfxPlayer;
+
+    [Header("CameraShake")]
+    [SerializeField] float cameraShakeIntensity = 1.5f;
+    [SerializeField] float cameraShakeTimer = 0.2f;
     #endregion
 
     void FixedUpdate()
@@ -45,7 +49,9 @@ public class Shooting : MonoBehaviour
             obj.transform.position = bulletTransform.position;
             obj.transform.rotation = Quaternion.identity;
             obj.SetActive(true);
+
             sfxPlayer.PlayShootingClip();
+            CinemachineShake.Instance.ShakeCamera(cameraShakeIntensity, cameraShakeTimer);
         }
         #endregion
     }
