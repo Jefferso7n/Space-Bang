@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -66,11 +67,11 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
-    #region IEnumerator of LoadGameOver and QuitGame
-    IEnumerator WaitAndLoad(string sceneName, float delay)
+    #region IEnumerator of WaitAndLoad and the QuitGame
+    IEnumerator WaitAndLoad(string scene_Name, float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(scene_Name);
     }
 
     public void QuitGame()
