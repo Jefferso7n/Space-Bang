@@ -51,7 +51,7 @@ MonoBehaviour:
   playerDamageClip: {fileID: 8300000, guid: 197fac3059b94224aa9a0bea0a152be5, type: 3}
   playerDamageVolume: 0.5
   enemyDamageClip: {fileID: 8300000, guid: c5d43ca495912d14ea2786dab38885b6, type: 3}
-  enemyDamageVolume: 0.15
+  enemyDamageVolume: 0.05
   flyingClip: {fileID: 8300000, guid: 9c86bc9fd6d7bd24aa84615ff0f2de50, type: 3}
   flyingVolume: 0.07
   audioSource: {fileID: -6773482499580305202}

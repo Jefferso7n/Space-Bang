@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     #region Declarations
     [SerializeField] int maxHealth = 100;
     [SerializeField] bool applyCameraShake;
+    [SerializeField] IFrame iFrame;
 
     CameraShake cameraShake;
     SFXPlayer sfxPlayer;
@@ -47,10 +48,15 @@ public class PlayerHealth : MonoBehaviour
     #region Damage
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0)
+        if (iFrame.canBeHurt)
         {
-            Die();
+            sfxPlayer.PlayPlayerDamageClip();
+            iFrame.StartCoroutine(iFrame.CoFlash());
+            health -= damage;
+            if (health <= 0)
+            {
+                Die();
+            }
         }
     }
 
@@ -62,21 +68,23 @@ public class PlayerHealth : MonoBehaviour
     }
     #endregion
 
-    #region Effects
+//    #region Effects
     // Effects to occur when the player collides with an enemy
-    public void HitEffect()
-    {
-        ShakeCamera();
-        sfxPlayer.PlayPlayerDamageClip();
-    }
+    // public void HitEffect()
+    // {
+    //     if (iFrame.canBeHurt){
+    //         ShakeCamera();
+    //         sfxPlayer.PlayPlayerDamageClip();
+    //     }
+    // }
 
-    void ShakeCamera()
-    {
-        if (cameraShake != null && applyCameraShake)
-        {
-            cameraShake.Play();
-        }
-    }
-    #endregion
+    // void ShakeCamera()
+    // {
+    //     if (cameraShake != null && applyCameraShake)
+    //     {
+    //         cameraShake.Play();
+    //     }
+    // }
+//    #endregion
 
 }

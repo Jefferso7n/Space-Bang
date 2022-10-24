@@ -179,11 +179,12 @@ GameObject:
   - component: {fileID: 2750801587168985157}
   - component: {fileID: 516458870}
   - component: {fileID: 516458871}
+  - component: {fileID: 1855187866}
   - component: {fileID: 2750801587168985155}
   - component: {fileID: 2750801587128174685}
   - component: {fileID: 2750801587128174672}
   - component: {fileID: 2750801587128174662}
-  - component: {fileID: 1855187866}
+  - component: {fileID: 9076625080467994382}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -307,6 +308,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.40443176, y: 0.9410826}
   m_EdgeRadius: 0
+--- !u!95 &1855187866
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750801587168985159}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd8db55e8fb6d8b4a9b88bd1c9d735c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2750801587168985155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +347,7 @@ MonoBehaviour:
   playerHealth: {fileID: 2750801587128174672}
   playerSpeed: {fileID: 2750801587128174662}
   anim: {fileID: 1855187866}
+  sfxPlayer: {fileID: 0}
 --- !u!114 &2750801587128174685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,8 +375,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f940a160bba310849bb22b2b21048c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   applyCameraShake: 0
+  iFrame: {fileID: 9076625080467994382}
 --- !u!114 &2750801587128174662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,26 +417,24 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   playerController: {fileID: 2750801587168985155}
---- !u!95 &1855187866
-Animator:
-  serializedVersion: 4
+--- !u!114 &9076625080467994382
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2750801587168985159}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bd8db55e8fb6d8b4a9b88bd1c9d735c8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b853914256dcc4a96a3f788d746a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+  regularColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.25
+  numberOfFlashes: 4
+  mySprite: {fileID: 2750801587168985157}
+  canBeHurt: 1
 --- !u!1 &2750801588791193754
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +537,14 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 2750801587128174672}
+    - target: {fileID: 3367525293623977657, guid: 7f3804c29c5e7a84fad2c537834e7280, type: 3}
+      propertyPath: cameraShakeTimer
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367525293623977657, guid: 7f3804c29c5e7a84fad2c537834e7280, type: 3}
+      propertyPath: cameraShakeIntensity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3367525293623977662, guid: 7f3804c29c5e7a84fad2c537834e7280, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -598,6 +627,14 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 2750801587128174672}
+    - target: {fileID: 3367525293623977657, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
+      propertyPath: cameraShakeTimer
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367525293623977657, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
+      propertyPath: cameraShakeIntensity
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3367525293623977662, guid: 45dfa236afe46844e8593cf7bd075aa7, type: 3}
       propertyPath: m_SortingOrder
       value: 2

@@ -65,7 +65,7 @@ public class EnemyFollow : MonoBehaviour
 
             if (playerHealth.IsAlive())
             {
-                playerHealth.HitEffect();
+//                playerHealth.HitEffect();
                 playerHealth.TakeDamage(damageDealer.GetDamage());
             }
 
@@ -85,7 +85,7 @@ public class EnemyFollow : MonoBehaviour
             {
                 if (playerHealth.IsAlive())
                 {
-                    playerHealth.HitEffect();
+//                    playerHealth.HitEffect();
                     playerHealth.TakeDamage(damageDealer.GetDamage());
                 }
 
