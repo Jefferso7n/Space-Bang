@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerSpeed playerSpeed;
     [SerializeField] Animator anim;
     [SerializeField] SFXPlayer sfxPlayer;
+    [SerializeField] KnockbackOnCollision knockbackOnCollision;
     #endregion
 
     void FixedUpdate()
@@ -57,8 +58,10 @@ public class PlayerController : MonoBehaviour
                 sfxPlayer.PlayFlyingClip();
             }
 
-            // Move
-            rb.MovePosition(rb.position + movement * playerSpeed.GetSpeed() * Time.fixedDeltaTime);
+            // Move (When not in knockback)
+            if (!knockbackOnCollision.isInKnockback){
+                rb.MovePosition(rb.position + movement * playerSpeed.GetSpeed() * Time.fixedDeltaTime);
+            }
 
             // Flip player character after changing horizontal movement
             if (movement.x > 0f && !facingRight)

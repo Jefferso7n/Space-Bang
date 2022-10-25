@@ -7,8 +7,8 @@ public class IFrame : MonoBehaviour
     [Header("Invulnerability")]
     [SerializeField] Color flashColor;
     [SerializeField] Color regularColor;
-    [SerializeField] float flashDuration;
-    [SerializeField] int numberOfFlashes;
+    [SerializeField] float flashDuration = 0.25f;
+    [SerializeField] int numberOfFlashes = 4;
     [SerializeField] SpriteRenderer mySprite;
     [HideInInspector] public bool canBeHurt = true;
 
@@ -19,6 +19,10 @@ public class IFrame : MonoBehaviour
     //         StartCoroutine(CoFlash());
     //     }
     // }
+
+    public float GetDuration(){
+        return flashDuration * numberOfFlashes;
+    }
 
     public IEnumerator CoFlash()
     {

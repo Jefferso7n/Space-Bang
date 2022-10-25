@@ -5,21 +5,38 @@ using UnityEngine;
 public class KnockbackOnCollision : MonoBehaviour
 {
     #region Declarations
-    [SerializeField] float knockbackStrength = 10f;
+    [SerializeField] Rigidbody2D playerRb;
+    [SerializeField] float knockbackStrength = 7.5f;
+    [SerializeField] float knockbackTime = 0.25f;
+    [SerializeField] IFrame iFrame;
+    Vector2 direction;
+    public bool isInKnockback = false;
+    bool canBeKnockback = true;
     #endregion
 
-    // If the enemy is hit by a bullet, he will be pushed away
-    private void OnCollisionEnter2D(Collision2D collision2D)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        Rigidbody2D rb = collision2D.collider.GetComponent<Rigidbody2D>();
-
-        if (rb != null)
+        if (other.gameObject.tag == "Enemy" && canBeKnockback)
         {
-            Vector2 direction = collision2D.transform.position - transform.position;
-            direction.y = 0;
-            Debug.Log(direction);
+            canBeKnockback = false;
+            isInKnockback = true;
 
-            rb.AddForce(direction.normalized * knockbackStrength, ForceMode2D.Impulse);
+            direction = (transform.position - other.transform.position).normalized;
+            direction = direction * knockbackStrength;
+
+            playerRb.AddForce(direction, ForceMode2D.Impulse);
+            StartCoroutine(CoKnock());
         }
     }
+
+    IEnumerator CoKnock()
+    {
+        yield return new WaitForSeconds(knockbackTime); //After this the player can move on PlayerController script
+        playerRb.velocity = Vector2.zero;
+        isInKnockback = false;
+
+        yield return new WaitForSeconds(iFrame.GetDuration() - knockbackTime); //After this the player can be affected again by knockback
+        canBeKnockback = true;
+    }
+
 }

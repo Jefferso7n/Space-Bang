@@ -929,6 +929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner (Pooler)
       objectReference: {fileID: 0}
+    - target: {fileID: 8115442057495158800, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8115442057495158802, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
       propertyPath: m_RootOrder
       value: 6

@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 2750801587128174672}
   - component: {fileID: 2750801587128174662}
   - component: {fileID: 9076625080467994382}
+  - component: {fileID: 3561273123966554778}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -280,7 +281,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &516458871
 BoxCollider2D:
@@ -348,6 +349,7 @@ MonoBehaviour:
   playerSpeed: {fileID: 2750801587128174662}
   anim: {fileID: 1855187866}
   sfxPlayer: {fileID: 0}
+  knockbackOnCollision: {fileID: 3561273123966554778}
 --- !u!114 &2750801587128174685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,6 +437,23 @@ MonoBehaviour:
   numberOfFlashes: 4
   mySprite: {fileID: 2750801587168985157}
   canBeHurt: 1
+--- !u!114 &3561273123966554778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750801587168985159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919918a4aa4229d4db5a36590ae85c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRb: {fileID: 516458870}
+  knockbackStrength: 7.5
+  knockbackTime: 0.25
+  iFrame: {fileID: 9076625080467994382}
+  isInKnockback: 0
 --- !u!1 &2750801588791193754
 GameObject:
   m_ObjectHideFlags: 0
