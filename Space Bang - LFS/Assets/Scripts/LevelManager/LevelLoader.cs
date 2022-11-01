@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
+    [SerializeField] ScoreKeeper scoreKeeper;
     [SerializeField] GameObject loadingScreen;
     [SerializeField] Slider slider;
 
     public void LoadGame()
     {
+        Time.timeScale = 1f; // To ensure time is not paused when starting the game
+        scoreKeeper.ResetScore();
         StartCoroutine(LoadAsynchronously("Game"));
     }
     IEnumerator LoadAsynchronously (string scene_Name){

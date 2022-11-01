@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8441223448582559646}
   - component: {fileID: 7433721131576695647}
   - component: {fileID: 6349977590877426611}
-  - component: {fileID: 3729690589032142410}
+  - component: {fileID: -492267644651149046}
   - component: {fileID: 2767871320005693982}
   m_Layer: 7
-  m_Name: Bullet
+  m_Name: Bullet Shotgun
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 32767
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.03486824, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.1159246, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,7 +135,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3729690589032142410
+--- !u!114 &-492267644651149046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,12 +144,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8441223448582559649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177ff11625cb88e4eb15a43562521c69, type: 3}
+  m_Script: {fileID: 11500000, guid: 93e087918e7a11148b55982630140c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
+  rb: {fileID: 7433721131576695647}
   scoreKeeper: {fileID: 8024950955291860333, guid: 42cf8b44948026448a4d7c042d7797eb, type: 3}
   damageDealer: {fileID: 2767871320005693982}
+  timeToLive: 0.45
 --- !u!114 &2767871320005693982
 MonoBehaviour:
   m_ObjectHideFlags: 0
