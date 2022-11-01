@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAimWeapon : MonoBehaviour
 {
     #region Declarations
-    [HideInInspector] public Camera mainCam;
     private Vector3 mousePosition;
     public Transform aimTransform;
     public Transform player;
@@ -13,6 +12,11 @@ public class PlayerAimWeapon : MonoBehaviour
     #endregion
 
     #region Aiming
+    private void Update() {
+        Vector2 dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+        transform.right = dir;
+    }
+
     void FixedUpdate()
     {
         HandleAiming();
@@ -21,7 +25,7 @@ public class PlayerAimWeapon : MonoBehaviour
     void HandleAiming()
     {
         // Get the mouse position, which is where the gun should be aiming
-        mousePosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 aimDirection = (mousePosition - transform.position).normalized;
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;

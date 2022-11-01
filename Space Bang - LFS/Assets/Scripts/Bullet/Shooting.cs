@@ -5,8 +5,6 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     #region Declarations
-    private Camera mainCam;
-    private Vector3 mousePos;
     public Transform bulletTransform;
     public bool canFire;
     private float timer;

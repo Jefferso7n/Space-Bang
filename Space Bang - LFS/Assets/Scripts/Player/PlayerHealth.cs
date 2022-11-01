@@ -64,27 +64,8 @@ public class PlayerHealth : MonoBehaviour
     {
         health = 0;
         isAlive = false;
-        levelManager.LoadGameOver();
+        levelManager.LoadGameOverInstantly();
+//        levelManager.LoadGameOver();
     }
     #endregion
-
-//    #region Effects
-    // Effects to occur when the player collides with an enemy
-    // public void HitEffect()
-    // {
-    //     if (iFrame.canBeHurt){
-    //         ShakeCamera();
-    //         sfxPlayer.PlayPlayerDamageClip();
-    //     }
-    // }
-
-    // void ShakeCamera()
-    // {
-    //     if (cameraShake != null && applyCameraShake)
-    //     {
-    //         cameraShake.Play();
-    //     }
-    // }
-//    #endregion
-
 }

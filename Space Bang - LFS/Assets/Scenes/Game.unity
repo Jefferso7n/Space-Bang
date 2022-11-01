@@ -332,7 +332,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8024950955291860332, guid: 42cf8b44948026448a4d7c042d7797eb, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8024950955291860332, guid: 42cf8b44948026448a4d7c042d7797eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -380,6 +380,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42cf8b44948026448a4d7c042d7797eb, type: 3}
+--- !u!1 &1249888076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1955496486330420088, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+  m_PrefabInstance: {fileID: 2750801586829885750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1249888077 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1042080102613636682, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+  m_PrefabInstance: {fileID: 2750801586829885750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1249888079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249888076}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60f811d5f384ab4a84171c6655c3657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1383772382
 GameObject:
   m_ObjectHideFlags: 1
@@ -557,7 +579,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1617764884944561216, guid: 5e50bc627ec0e074f9f886dbcc2608eb, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1617764884944561216, guid: 5e50bc627ec0e074f9f886dbcc2608eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -730,6 +752,30 @@ PrefabInstance:
       propertyPath: sfxPlayer
       value: 
       objectReference: {fileID: 248228544}
+    - target: {fileID: 1864497948484675520, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: AimOrigin
+      value: 
+      objectReference: {fileID: 1249888077}
+    - target: {fileID: 1864497948484675520, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: sfxPlayer
+      value: 
+      objectReference: {fileID: 248228544}
+    - target: {fileID: 1864497948484675520, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: BulletForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864497948484675520, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: SpreadAngle
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875259921937944379, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.376
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875259923188973890, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2750801587128174685, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: mainCam
       value: 
@@ -786,10 +832,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5196141246087699698, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196141246087699698, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 8600082638524191313, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: sfxPlayer
       value: 
       objectReference: {fileID: 248228544}
+    - target: {fileID: 9140089293729951617, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
 --- !u!1001 &4509370791518618554

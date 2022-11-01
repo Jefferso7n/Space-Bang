@@ -1620,7 +1620,7 @@ MonoBehaviour:
   colon: {fileID: 4643456719152609012}
   second1: {fileID: 4643456719145277361}
   second2: {fileID: 4643456720258795464}
-  timeDuration: 120
+  timeDuration: 90
   timer: 0
   timerUP: 0
   flashStart: 10

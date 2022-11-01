@@ -349,6 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f352a3e42e0069c44baed40f9264b9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreKeeper: {fileID: 8024950955291860333, guid: 42cf8b44948026448a4d7c042d7797eb, type: 3}
   loadingScreen: {fileID: 1719523599635652510}
   slider: {fileID: 1719523598468753239}
 --- !u!1 &1719523599270837876
