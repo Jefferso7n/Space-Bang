@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerSpeed playerSpeed;
     [SerializeField] Animator anim;
     [SerializeField] SFXPlayer sfxPlayer;
-    [SerializeField] KnockbackOnCollision knockbackOnCollision;
+    [SerializeField] KnockbackAndRecoil knockbackAndRecoil;
     #endregion
 
     void FixedUpdate()
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
             }
 
             // Move (When not in knockback)
-            if (!knockbackOnCollision.isInKnockback){
+            if (!knockbackAndRecoil.isInKnockback){
                 rb.MovePosition(rb.position + movement * playerSpeed.GetSpeed() * Time.fixedDeltaTime);
             }
 

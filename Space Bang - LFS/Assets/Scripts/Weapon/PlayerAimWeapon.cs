@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAimWeapon : MonoBehaviour
 {
     #region Declarations
-    private Vector3 mousePosition;
+    [HideInInspector] public Vector3 mousePosition;
     public Transform aimTransform;
     public Transform player;
     bool isfacingRight = true;

@@ -19,13 +19,16 @@ public class Shotgun : MonoBehaviour
     [SerializeField] float cameraShakeTimer = 0.15f;
 
     [Header("Bullet Attributes")]
-    [SerializeField] private Transform bulletSpawnPosition;
-    [SerializeField] private Transform aimWeaponOrigin;
+    [SerializeField] Transform bulletSpawnPosition;
+    [SerializeField] Transform aimWeaponOrigin;
 
-    [SerializeField] private int numberOfBullets = 3;
-    [SerializeField] private float bulletForce = 10f;
+    [SerializeField] int numberOfBullets = 3;
+    [SerializeField] float bulletForce = 10f;
     [Range(0, 360)]
-    [SerializeField] private float angleSpread = 20;
+    [SerializeField] float angleSpread = 20;
+
+    [Header("Recoil")]
+    [SerializeField] KnockbackAndRecoil knockbackAndRecoil;
     #endregion
 
     void FixedUpdate()
@@ -47,6 +50,7 @@ public class Shotgun : MonoBehaviour
         {
             canFire = false; // Enter cooldown
             Shoot();
+            knockbackAndRecoil.ShotgunRecoil();
             sfxPlayer.PlayShootingClip();
             CinemachineShake.Instance.ShakeCamera(cameraShakeIntensity, cameraShakeTimer);
         }

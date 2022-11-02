@@ -323,6 +323,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c561d045606aed648b281f8f81a1b387, type: 3}
+--- !u!114 &941335250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3561273123966554778, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+  m_PrefabInstance: {fileID: 2750801586829885750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919918a4aa4229d4db5a36590ae85c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1000488033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,6 +746,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1231658552582711558, guid: 201b2c760f2a63341aac235415fa9ca5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1231658552582711559, guid: 201b2c760f2a63341aac235415fa9ca5, type: 3}
       propertyPath: m_Name
       value: PostProcess
@@ -768,6 +783,10 @@ PrefabInstance:
       propertyPath: SpreadAngle
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1864497948484675520, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: knockbackAndRecoil
+      value: 
+      objectReference: {fileID: 941335250}
     - target: {fileID: 1875259921937944379, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.376

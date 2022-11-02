@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7b2a94a875e984b81ccb9b71b403b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mousePosition: {x: 0, y: 0, z: 0}
   aimTransform: {fileID: 2750801588791193755}
   player: {fileID: 2750801587168985154}
 --- !u!1 &2750801587168985159
@@ -396,7 +397,7 @@ MonoBehaviour:
   playerSpeed: {fileID: 2750801587128174662}
   anim: {fileID: 1855187866}
   sfxPlayer: {fileID: 0}
-  knockbackOnCollision: {fileID: 3561273123966554778}
+  knockbackAndRecoil: {fileID: 3561273123966554778}
 --- !u!114 &2750801587128174685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7b2a94a875e984b81ccb9b71b403b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mousePosition: {x: 0, y: 0, z: 0}
   aimTransform: {fileID: 2750801588791193755}
   player: {fileID: 2750801587168985154}
 --- !u!114 &2750801587128174672
@@ -496,10 +498,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRb: {fileID: 516458870}
+  iFrame: {fileID: 9076625080467994382}
   knockbackStrength: 7.5
   knockbackTime: 0.25
-  iFrame: {fileID: 9076625080467994382}
   isInKnockback: 0
+  weaponSwitching: {fileID: 2750801588791193752}
+  shotgun: {fileID: 1864497948484675520}
+  recoilStrength: 5
+  recoilTime: 0.25
 --- !u!1 &2750801588791193754
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +651,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2750801588791193755}
     m_Modifications:
+    - target: {fileID: 22954318832245679, guid: 5edfaff49e6f07349bc01a69796b7638, type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 516458870}
+    - target: {fileID: 22954318832245679, guid: 5edfaff49e6f07349bc01a69796b7638, type: 3}
+      propertyPath: aimWeaponOrigin
+      value: 
+      objectReference: {fileID: 1042080102613636682}
     - target: {fileID: 3268944407271132739, guid: 5edfaff49e6f07349bc01a69796b7638, type: 3}
       propertyPath: playerHealth
       value: 
@@ -707,6 +721,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5edfaff49e6f07349bc01a69796b7638, type: 3}
+--- !u!114 &1864497948484675520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3268944407271132739, guid: 5edfaff49e6f07349bc01a69796b7638, type: 3}
+  m_PrefabInstance: {fileID: 3800361469342312835}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a59f91ab0e2174abeb711a1207f2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1875259921937944379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3367525293623977656, guid: 5edfaff49e6f07349bc01a69796b7638, type: 3}
