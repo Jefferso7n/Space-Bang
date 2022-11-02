@@ -77,4 +77,8 @@ public class WeaponSwitching : MonoBehaviour
             i++;
         }
     }
+
+    public string GetSelectedWeapon(){
+        return transform.GetChild(selectedWeapon).name;
+    }
 }

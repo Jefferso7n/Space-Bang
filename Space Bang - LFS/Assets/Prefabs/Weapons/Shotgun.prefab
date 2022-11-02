@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3367525293623977656}
   - component: {fileID: 3367525293623977662}
+  - component: {fileID: 22954318832245679}
   - component: {fileID: 3268944407271132739}
   m_Layer: 0
   m_Name: Shotgun
@@ -167,6 +168,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &22954318832245679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367525294806034625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40de4e812cd13b8438e9090d525e8fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRb: {fileID: 0}
+  recoilStrength: 5
+  aimWeaponOrigin: {fileID: 0}
 --- !u!114 &3268944407271132739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +207,7 @@ MonoBehaviour:
   numberOfBullets: 3
   bulletForce: 8
   angleSpread: 60
+  shotgunRecoil: {fileID: 22954318832245679}
 --- !u!1 &4336049002099095834
 GameObject:
   m_ObjectHideFlags: 0
