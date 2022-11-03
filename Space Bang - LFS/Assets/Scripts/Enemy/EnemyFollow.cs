@@ -13,6 +13,7 @@ public class EnemyFollow : MonoBehaviour
     Transform target;
     [SerializeField] Rigidbody2D rb;
     private Vector2 movement;
+    bool facingRight = true;
     #endregion
 
     void Awake()
@@ -33,6 +34,23 @@ public class EnemyFollow : MonoBehaviour
 
         direction.Normalize();
         movement = direction;
+
+        if (movement.x > 0f && !facingRight)
+        {
+            Flip();
+        }
+        else if (movement.x < 0f && facingRight)
+        {
+            Flip();
+        }
+    }
+
+    void Flip()
+    {
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+        facingRight = !facingRight;
     }
 
     private void FixedUpdate()
