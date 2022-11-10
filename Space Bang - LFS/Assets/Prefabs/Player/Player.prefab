@@ -503,9 +503,8 @@ MonoBehaviour:
   knockbackStrength: 7.5
   knockbackTime: 0.25
   isInKnockback: 0
-  weaponSwitching: {fileID: 2750801588791193752}
   shotgun: {fileID: 1864497948484675520}
-  recoilStrength: 5
+  recoilStrength: 3
   recoilTime: 0.25
 --- !u!114 &2791285699487319240
 MonoBehaviour:
@@ -523,6 +522,8 @@ MonoBehaviour:
   timer: {fileID: 0}
   killsNecessaryToIncrementTime: 10
   timerToAdd: 10
+  extraTimer: {fileID: 0}
+  killsUI: {fileID: 0}
 --- !u!1 &2750801588791193754
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limitedScroller: 1
+  weaponUI: {fileID: 0}
 --- !u!1001 &2681665253655843472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -736,7 +738,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 22954318832245679, guid: 5edfaff49e6f07349bc01a69796b7638, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5edfaff49e6f07349bc01a69796b7638, type: 3}
 --- !u!114 &1864497948484675520 stripped
 MonoBehaviour:
