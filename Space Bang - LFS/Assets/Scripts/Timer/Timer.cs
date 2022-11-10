@@ -63,6 +63,10 @@ public class Timer : MonoBehaviour
         SetTextDisplay(true); // Display timer
     }
 
+    public void AddTimer(float timerToAdd){
+        timer += timerToAdd;
+    }
+
     // Update timer text
     private void UpdateTimerDisplay(float time)
     {
@@ -118,7 +122,7 @@ public class Timer : MonoBehaviour
     }
 
     // Display the timer text
-    private void SetTextDisplay(bool enabled)
+    public void SetTextDisplay(bool enabled)
     {
         minute1.enabled = enabled;
         minute2.enabled = enabled;

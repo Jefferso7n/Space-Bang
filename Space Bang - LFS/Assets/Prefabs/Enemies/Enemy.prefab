@@ -248,6 +248,8 @@ MonoBehaviour:
   health: 50
   spriteRenderer: {fileID: 8441223448582559646}
   scoreKeeper: {fileID: 8024950955291860333, guid: 42cf8b44948026448a4d7c042d7797eb, type: 3}
+  timerModification: {fileID: 2791285699487319240, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+  sfxPlayer: {fileID: 5390781685452636460, guid: c561d045606aed648b281f8f81a1b387, type: 3}
 --- !u!114 &6476332442246101296
 MonoBehaviour:
   m_ObjectHideFlags: 0

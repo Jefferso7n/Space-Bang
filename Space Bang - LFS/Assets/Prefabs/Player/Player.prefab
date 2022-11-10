@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 2750801587128174662}
   - component: {fileID: 9076625080467994382}
   - component: {fileID: 3561273123966554778}
+  - component: {fileID: 2791285699487319240}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -506,6 +507,22 @@ MonoBehaviour:
   shotgun: {fileID: 1864497948484675520}
   recoilStrength: 5
   recoilTime: 0.25
+--- !u!114 &2791285699487319240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750801587168985159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713a2db32f3bcf64da5e370b57ea8dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreKeeper: {fileID: 8024950955291860333, guid: 42cf8b44948026448a4d7c042d7797eb, type: 3}
+  timer: {fileID: 0}
+  killsNecessaryToIncrementTime: 10
+  timerToAdd: 10
 --- !u!1 &2750801588791193754
 GameObject:
   m_ObjectHideFlags: 0

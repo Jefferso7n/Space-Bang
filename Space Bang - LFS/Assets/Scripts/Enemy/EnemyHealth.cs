@@ -9,12 +9,14 @@ public class EnemyHealth : MonoBehaviour
     int currentHealth;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] ScoreKeeper scoreKeeper;
+    TimerModification timerModification;
     SFXPlayer sfxPlayer;
     #endregion
 
     private void Awake()
     {
         sfxPlayer = FindObjectOfType<SFXPlayer>();
+        timerModification = GameObject.FindGameObjectWithTag("Player").GetComponent<TimerModification>();
         currentHealth = health; //Sets current health equal to maximum health
     }
 
@@ -33,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = 0; // To avoid negative health
         scoreKeeper.ModifyKills(); // If the enemy dies, it will add to the player's score
+        timerModification.IncrementOnTime();
     }
 
     public void RestartHealth() //Will restore the enemy entirely
