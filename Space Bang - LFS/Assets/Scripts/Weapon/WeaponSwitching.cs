@@ -7,6 +7,8 @@ public class WeaponSwitching : MonoBehaviour
     [SerializeField] bool limitedScroller = true;
     int selectedWeapon = 0;
 
+    [SerializeField] WeaponUI weaponUI;
+
     void Start()
     {
         SelectWeapon();
@@ -68,6 +70,7 @@ public class WeaponSwitching : MonoBehaviour
         {
             if (i == selectedWeapon)
             {
+                weaponUI.UpdateWeaponSpriteOnUI(weapon.GetComponent<SpriteRenderer>().sprite);
                 weapon.gameObject.SetActive(true);
             }
             else
@@ -78,7 +81,7 @@ public class WeaponSwitching : MonoBehaviour
         }
     }
 
-    public string GetSelectedWeapon(){
-        return transform.GetChild(selectedWeapon).name;
-    }
+    // public Sprite GetSelectedWeaponSprite(){
+    //     return transform.GetChild(selectedWeapon).GetComponent<SpriteRenderer>().sprite;
+    // }
 }

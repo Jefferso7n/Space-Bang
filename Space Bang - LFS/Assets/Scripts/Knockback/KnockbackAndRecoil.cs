@@ -16,39 +16,31 @@ public class KnockbackAndRecoil : MonoBehaviour
     bool canBeKnockback = true;
 
     [Header("Shotgun Recoil")]
-    [SerializeField] WeaponSwitching weaponSwitching; //GetSelectedWeapon()
     [SerializeField] Shotgun shotgun;
-    [SerializeField] float recoilStrength = 5f;
+    [SerializeField] float recoilStrength = 3f;
     [SerializeField] float recoilTime = 0.25f;
 
     Vector2 direction;
     #endregion
 
-    //When the player shots with the shotgun
-    // void FixedUpdate(){
-    //     if(Input.GetMouseButton(0) && weaponSwitching.GetSelectedWeapon() == "Shotgun" && canBeKnockback){
-    //         canBeKnockback = false;
-    //         isInKnockback = true;
-
-    //         direction = (transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition)).normalized;
-    //         direction = direction * recoilStrength;
-
-    //         playerRb.AddForce(direction, ForceMode2D.Impulse);
-    //         StartCoroutine(CoRecoil());
-    //     }
-    // }
-
-    public void ShotgunRecoil(){
-        if(canBeKnockback){
+    public void ShotgunRecoil()
+    {
+        if (canBeKnockback)
+        {
             canBeKnockback = false;
             isInKnockback = true;
 
             direction = (transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition)).normalized;
-            direction = direction * recoilStrength;
+            AdjustKnockbackStrength();
 
             playerRb.AddForce(direction, ForceMode2D.Impulse);
             StartCoroutine(CoRecoil());
         }
+    }
+
+    void AdjustKnockbackStrength(){
+        direction.x = Mathf.Sign(direction.x) * recoilStrength;
+        direction.y = Mathf.Sign(direction.y) * recoilStrength;
     }
 
     //When the player gets hurt by a enemy
@@ -77,7 +69,8 @@ public class KnockbackAndRecoil : MonoBehaviour
         canBeKnockback = true;
     }
 
-    IEnumerator CoRecoil(){
+    IEnumerator CoRecoil()
+    {
         yield return new WaitForSeconds(recoilTime); //After this the player can move on PlayerController script
         playerRb.velocity = Vector2.zero;
         isInKnockback = false;
