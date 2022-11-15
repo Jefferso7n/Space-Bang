@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledObject: {fileID: 8441223448582559649, guid: 20e991f45c8b0884ebb8840161ef963a, type: 3}
-  pooledAmount: 12
+  pooledAmount: 20
   willGrow: 1
 --- !u!1 &3367525294806034625
 GameObject:
