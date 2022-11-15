@@ -24,10 +24,13 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        CancelInvoke(nameof(OffAnimationHit));
         sfxPlayer.PlayEnemyDamageClip();
         currentHealth -= damage; // Decreases health according to damage taken 
-        anim.SetBool("Attacking",false);
-        anim.SetBool("Hit",true);
+        anim.SetBool("Attacking", false);
+        anim.SetBool("Hit", true);
+
+        Invoke(nameof(OffAnimationHit),0.5f);
 
         if (currentHealth <= 0)
         {
@@ -35,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    void Die()
+    private void Die()
     {
         currentHealth = 0; // To avoid negative health
         scoreKeeper.ModifyKills(); // If the enemy dies, it will add to the player's score
@@ -51,6 +54,12 @@ public class EnemyHealth : MonoBehaviour
     public int GetCurrentHealth()
     {
         return currentHealth;
+    }
+
+    private void OffAnimationHit()
+    {
+        anim.SetBool("Attacking", false);
+        anim.SetBool("Hit", false);
     }
 
 }

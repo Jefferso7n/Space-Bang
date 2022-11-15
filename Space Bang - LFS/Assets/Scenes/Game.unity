@@ -454,31 +454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b1926bdbbd28f41908aae7b713cee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1132441761 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8441223448582559649, guid: 57a2d2dbd050d3d44a81183cd4d7cbbe, type: 3}
-  m_PrefabInstance: {fileID: 1330594550}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1132441771
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132441761}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6265eb3daf998244988e37b4084d6af2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1249888076 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1955496486330420088, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
@@ -508,10 +483,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3103684942328542137, guid: 57a2d2dbd050d3d44a81183cd4d7cbbe, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 1132441771}
     - target: {fileID: 8441223448582559645, guid: 57a2d2dbd050d3d44a81183cd4d7cbbe, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -556,10 +527,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8441223448582559648, guid: 57a2d2dbd050d3d44a81183cd4d7cbbe, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 1132441771}
     - target: {fileID: 8441223448582559649, guid: 57a2d2dbd050d3d44a81183cd4d7cbbe, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1210,7 +1177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8115442057495158800, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8115442057495158802, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
       propertyPath: m_RootOrder
