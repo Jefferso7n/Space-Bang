@@ -44,6 +44,7 @@ public class EnemyFollow : MonoBehaviour
         {
             Flip();
         }
+
     }
 
     void Flip()
@@ -65,11 +66,13 @@ public class EnemyFollow : MonoBehaviour
         rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
     }
 
-    public float GetSpeed(){
+    public float GetSpeed()
+    {
         return speed;
     }
 
-    public void setSpeed(float newSpeed){
+    public void setSpeed(float newSpeed)
+    {
         speed = newSpeed;
     }
     #endregion
@@ -81,12 +84,17 @@ public class EnemyFollow : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+<<<<<<< HEAD
 
             AnimationController();
+=======
+            anim.SetBool("Attacking", true);
+            anim.SetBool("Hit", false);
+>>>>>>> Animações
 
             if (playerHealth.IsAlive())
             {
-//                playerHealth.HitEffect();
+                //                playerHealth.HitEffect();
                 playerHealth.TakeDamage(damageDealer.GetDamage());
             }
 
@@ -108,11 +116,16 @@ public class EnemyFollow : MonoBehaviour
             // After a while, if the enemy attack is not on cooldown, the player loses life. (Based on enemy attack speed)
             if (attackSpeed <= canAttack)
             {
+<<<<<<< HEAD
                 AnimationController();
+=======
+                anim.SetBool("Attacking", true);
+                anim.SetBool("Hit", false);
+>>>>>>> Animações
 
                 if (playerHealth.IsAlive())
                 {
-//                    playerHealth.HitEffect();
+                    //                    playerHealth.HitEffect();
                     playerHealth.TakeDamage(damageDealer.GetDamage());
                 }
 
@@ -123,6 +136,16 @@ public class EnemyFollow : MonoBehaviour
                 canAttack += Time.fixedDeltaTime;
             }
         }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        Invoke(nameof(OffAnimationAtk),0.3f);
+    }
+    void OffAnimationAtk()
+    {
+        anim.SetBool("Attacking", false);
+        anim.SetBool("Hit", false);
     }
     #endregion
 }

@@ -462,6 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b1926bdbbd28f41908aae7b713cee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!4 &1024090298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115442057495158802, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
@@ -536,6 +537,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
+=======
+>>>>>>> Animações
 --- !u!1 &1249888076 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1955496486330420088, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
@@ -565,6 +568,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1614818160}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 8115442057495158800, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
       propertyPath: m_Name
       value: EnemySpawner (Pooler) (1)
@@ -582,6 +586,9 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8115442057495158802, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
+=======
+    - target: {fileID: 8441223448582559645, guid: 57a2d2dbd050d3d44a81183cd4d7cbbe, type: 3}
+>>>>>>> Animações
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
@@ -625,6 +632,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 8441223448582559649, guid: 57a2d2dbd050d3d44a81183cd4d7cbbe, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+>>>>>>> Animações
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e617f9a283fc621448ceefe0e5df55b6, type: 3}
 --- !u!1 &1383772382
