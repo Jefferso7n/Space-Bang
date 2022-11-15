@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3103684942328542137}
   - component: {fileID: 6476332442246101296}
   - component: {fileID: -4522039590841981173}
+  - component: {fileID: 1132441771}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -233,7 +234,7 @@ MonoBehaviour:
   speed: 1.75
   attackSpeed: 2.5
   rb: {fileID: 3011293730575019874}
-  anim: {fileID: 0}
+  anim: {fileID: 1132441771}
 --- !u!114 &3103684942328542137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +250,7 @@ MonoBehaviour:
   health: 50
   spriteRenderer: {fileID: 8441223448582559646}
   scoreKeeper: {fileID: 8024950955291860333, guid: 42cf8b44948026448a4d7c042d7797eb, type: 3}
+  anim: {fileID: 1132441771}
 --- !u!114 &6476332442246101296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +277,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!95 &1132441771
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441223448582559649}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6265eb3daf998244988e37b4084d6af2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -81,8 +81,8 @@ public class EnemyFollow : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
-            anim.SetBool("Attacking",true);
-            anim.SetBool("Hit",false);
+
+            AnimationController();
 
             if (playerHealth.IsAlive())
             {
@@ -92,6 +92,10 @@ public class EnemyFollow : MonoBehaviour
 
             canAttack = 0f;
         }
+    }
+
+    void AnimationController(){
+        anim.SetTrigger("attack");
     }
 
     //The player continues to lose health if he is leaning against the enemy
@@ -104,8 +108,7 @@ public class EnemyFollow : MonoBehaviour
             // After a while, if the enemy attack is not on cooldown, the player loses life. (Based on enemy attack speed)
             if (attackSpeed <= canAttack)
             {
-                 anim.SetBool("Attacking",true);
-                anim.SetBool("Hit",false);
+                AnimationController();
 
                 if (playerHealth.IsAlive())
                 {
