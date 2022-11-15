@@ -14,6 +14,7 @@ public class EnemyFollow : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     private Vector2 movement;
     bool facingRight = true;
+    [SerializeField] Animator anim;
     #endregion
 
     void Awake()
@@ -80,6 +81,8 @@ public class EnemyFollow : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+            anim.SetBool("Attacking",true);
+            anim.SetBool("Hit",false);
 
             if (playerHealth.IsAlive())
             {
@@ -101,6 +104,9 @@ public class EnemyFollow : MonoBehaviour
             // After a while, if the enemy attack is not on cooldown, the player loses life. (Based on enemy attack speed)
             if (attackSpeed <= canAttack)
             {
+                 anim.SetBool("Attacking",true);
+                anim.SetBool("Hit",false);
+
                 if (playerHealth.IsAlive())
                 {
 //                    playerHealth.HitEffect();

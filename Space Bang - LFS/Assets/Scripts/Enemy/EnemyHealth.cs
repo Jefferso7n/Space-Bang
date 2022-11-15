@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] ScoreKeeper scoreKeeper;
     TimerModification timerModification;
     SFXPlayer sfxPlayer;
+    [SerializeField] Animator anim;
     #endregion
 
     private void Awake()
@@ -25,6 +26,9 @@ public class EnemyHealth : MonoBehaviour
     {
         sfxPlayer.PlayEnemyDamageClip();
         currentHealth -= damage; // Decreases health according to damage taken 
+        anim.SetBool("Attacking",false);
+        anim.SetBool("Hit",true);
+
         if (currentHealth <= 0)
         {
             Die();

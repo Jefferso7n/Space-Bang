@@ -207,7 +207,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 43663253ea119524cac158cc0190cd9a, type: 3}
+  m_Sprite: {fileID: 1534036196, guid: 43663253ea119524cac158cc0190cd9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   speed: 1.75
   attackSpeed: 2.5
   rb: {fileID: 3011293730575019874}
+  anim: {fileID: 0}
 --- !u!114 &3103684942328542137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,8 +249,6 @@ MonoBehaviour:
   health: 50
   spriteRenderer: {fileID: 8441223448582559646}
   scoreKeeper: {fileID: 8024950955291860333, guid: 42cf8b44948026448a4d7c042d7797eb, type: 3}
-  timerModification: {fileID: 2791285699487319240, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
-  sfxPlayer: {fileID: 5390781685452636460, guid: c561d045606aed648b281f8f81a1b387, type: 3}
 --- !u!114 &6476332442246101296
 MonoBehaviour:
   m_ObjectHideFlags: 0
