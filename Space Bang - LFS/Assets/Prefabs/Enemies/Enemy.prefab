@@ -235,10 +235,6 @@ MonoBehaviour:
   attackSpeed: 2.5
   rb: {fileID: 3011293730575019874}
   anim: {fileID: 1132441771}
-<<<<<<< HEAD
-=======
-  myTransform: {fileID: 8441223448582559645}
->>>>>>> Animações
 --- !u!114 &3103684942328542137
 MonoBehaviour:
   m_ObjectHideFlags: 0
