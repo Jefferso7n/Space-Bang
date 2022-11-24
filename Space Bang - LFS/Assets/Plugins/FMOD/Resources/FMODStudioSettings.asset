@@ -307,7 +307,12 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - E_Damage
+  - Flying
+  - Music
+  - P_Damage
+  - Shooting
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
