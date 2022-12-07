@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     #region Declarations
     public Rigidbody2D rb;
-    Vector2 movement;
+    [HideInInspector] public Vector2 movement;
     [HideInInspector] public bool facingRight = true, isMoving = false;
     public PlayerAimWeapon playerAimWeapon;
     [SerializeField] PlayerHealth playerHealth;
@@ -14,11 +14,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] SFXPlayer sfxPlayer;
     [SerializeField] KnockbackAndRecoil knockbackAndRecoil;
+    public bool canMove = true;
     #endregion
 
     void FixedUpdate()
     {
-        if (playerHealth.IsAlive())
+        if (playerHealth.IsAlive() && canMove)
         {
             // Get inputs
             movement.x = Input.GetAxisRaw("Horizontal");

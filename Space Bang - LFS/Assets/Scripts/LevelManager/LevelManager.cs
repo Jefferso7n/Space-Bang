@@ -40,6 +40,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void LoadTutorial(){
+        Time.timeScale = 1f; // To ensure time is not paused when starting the tutorial
+        scoreKeeper.ResetScore();
+        SceneManager.LoadScene("Tutorial");
+    }
 
     public void LoadMainMenu()
     {

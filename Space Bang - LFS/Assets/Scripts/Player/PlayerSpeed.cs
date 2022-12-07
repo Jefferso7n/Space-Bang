@@ -18,6 +18,10 @@ public class PlayerSpeed : MonoBehaviour
     {
         return speed * speedCurve.Evaluate(TimeManagement(playerController.isMoving));
     }
+
+    public float GetMaxSpeed(){
+        return speed;
+    }
     #endregion
 
     #region Time

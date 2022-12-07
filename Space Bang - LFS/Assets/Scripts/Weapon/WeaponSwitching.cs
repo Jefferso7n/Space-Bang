@@ -8,6 +8,7 @@ public class WeaponSwitching : MonoBehaviour
     int selectedWeapon = 0;
 
     [SerializeField] WeaponUI weaponUI;
+    public bool canSwitchWeapon = true;
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class WeaponSwitching : MonoBehaviour
 
     void Update()
     {
+        if(!canSwitchWeapon) return;
+
         int previousSelectedWeapon = selectedWeapon;
 
         // Change weapon with mouse scroll
@@ -81,7 +84,7 @@ public class WeaponSwitching : MonoBehaviour
         }
     }
 
-    // public Sprite GetSelectedWeaponSprite(){
-    //     return transform.GetChild(selectedWeapon).GetComponent<SpriteRenderer>().sprite;
-    // }
+    public GameObject GetSelectedWeapon(){
+        return transform.GetChild(selectedWeapon).gameObject;
+    }
 }

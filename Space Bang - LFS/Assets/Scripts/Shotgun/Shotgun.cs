@@ -6,7 +6,7 @@ public class Shotgun : MonoBehaviour
 {
 
     #region Declarations
-    public bool canFire;
+    public bool canFire, canShoot = true;
     private float timer;
     public float timeBetweenFiring;
 
@@ -33,6 +33,7 @@ public class Shotgun : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(!canShoot) return;
         #region Cooldown Controller
         // If the shot IS on COOLDOWN, the timer will increase until shooting is possible. It will then set 'canFire' to true.
         if (!canFire)
@@ -56,7 +57,7 @@ public class Shotgun : MonoBehaviour
         }
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         float angleStep = angleSpread / numberOfBullets;
         float aimingAngle = aimWeaponOrigin.rotation.eulerAngles.z;

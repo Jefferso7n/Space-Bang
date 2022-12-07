@@ -16,6 +16,14 @@ public class LevelLoader : MonoBehaviour
         scoreKeeper.ResetScore();
         StartCoroutine(LoadAsynchronously("Game"));
     }
+
+    public void LoadTutorial()
+    {
+        Time.timeScale = 1f; // To ensure time is not paused when starting the game
+        scoreKeeper.ResetScore();
+        StartCoroutine(LoadAsynchronously("Tutorial"));
+    }
+
     IEnumerator LoadAsynchronously (string scene_Name){
         AsyncOperation operation = SceneManager.LoadSceneAsync(scene_Name);
 

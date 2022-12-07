@@ -6,7 +6,7 @@ public class Shooting : MonoBehaviour
 {
     #region Declarations
     public Transform bulletTransform;
-    public bool canFire;
+    public bool canFire, canShoot = true;
     private float timer;
     public float timeBetweenFiring;
 
@@ -21,6 +21,7 @@ public class Shooting : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(!canShoot) return;
         #region Cooldown Controller
         // If the shot IS on COOLDOWN, the timer will increase until shooting is possible. It will then set 'canFire' to true.
         if (!canFire)

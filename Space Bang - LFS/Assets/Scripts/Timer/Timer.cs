@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     private bool countDown = true; // By default there will be countDown
     [SerializeField] LevelManager levelManager;
     [SerializeField] ScoreKeeper scoreKeeper;
+    public bool isCounting = true;
     #endregion
 
     #region Timer
@@ -24,6 +25,8 @@ public class Timer : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(!isCounting) return;
+
         timerUP += Time.fixedDeltaTime;
 
         if (countDown && timer <= 0f) // If time runs out, load GameOver screen
@@ -68,7 +71,7 @@ public class Timer : MonoBehaviour
     }
 
     // Update timer text
-    private void UpdateTimerDisplay(float time)
+    public void UpdateTimerDisplay(float time)
     {
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
