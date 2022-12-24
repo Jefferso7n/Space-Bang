@@ -34,9 +34,7 @@ public class WeaponSwitching : MonoBehaviour
                 {
                     selectedWeapon = 0;
                 }
-            }
-            else
-            {
+            } else{
                 selectedWeapon++;
             }
         }
@@ -52,9 +50,7 @@ public class WeaponSwitching : MonoBehaviour
                 {
                     selectedWeapon = transform.childCount - 1;
                 }
-            }
-            else
-            {
+            } else{
                 selectedWeapon--;
             }
         }

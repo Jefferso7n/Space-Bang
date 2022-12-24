@@ -151,7 +151,7 @@ public class Tutorial : MonoBehaviour
 
         if (hasShootedWithAllWeapons) return;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             UnpauseGame();
         }

@@ -1677,7 +1677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1864497948484675520, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: timeBetweenFiring
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1864497948484675520, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: knockbackAndRecoil
@@ -1761,6 +1761,10 @@ PrefabInstance:
       objectReference: {fileID: 1015355374}
     - target: {fileID: 2750801588791193752, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
       propertyPath: canSwitchWeapon
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750801588791193752, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
+      propertyPath: limitedScroller
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2791285699487319240, guid: 4d23ef2ae657a82408f54f29fc44fa71, type: 3}
@@ -2044,6 +2048,18 @@ PrefabInstance:
     - target: {fileID: 4643456720258795467, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443521775276293905, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443521775276293905, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443521775276293906, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44b0f4f63ab8164482983279c3c56d2, type: 3}
